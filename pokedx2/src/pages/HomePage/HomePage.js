@@ -1,12 +1,16 @@
 import React from "react";
-import { CardsContainer, HomePageContainer, MainContainer, SelectCategory } from "../../styles/styles";
+
+import {useNavigate} from 'react-router-dom';
+
+import { goToPage } from '../../routes/coordinator';
+import { Button, CardsContainer, HomePageContainer, MainContainer, SelectCategory, H1 } from "../../styles/styles";
 
 export default function HomePage() {
-
+    const navigate = useNavigate();
     return (
         <MainContainer>
             <HomePageContainer>
-                <h1>Pokémon</h1>
+                <H1>Pokémon</H1>
                 <SelectCategory>
                     <option>Tipo De Pokémon</option>
                 </SelectCategory>
@@ -14,6 +18,9 @@ export default function HomePage() {
  
                 </CardsContainer>
             </HomePageContainer>
+            <Button onClick={ () => { goToPage(navigate,'/details') }}>
+                detalhes do pokemon
+            </Button>
         </MainContainer>
 
     )
