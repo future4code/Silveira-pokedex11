@@ -18,3 +18,6 @@ export default function App() {
 }
 
 
+
+// rota do terminal para rodar 
+
