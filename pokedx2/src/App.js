@@ -4,16 +4,15 @@ import react from 'react';
 // import axios from 'axios';
 import styled from 'styled-components';
 
-
-const MainConstainer = styled.div`
+const MainContainer = styled.div`
   display:flex;
 `
 
 export default function App() {
   return (
-    <MainConstainer>
+    <MainContainer>
       to aqui
-    </MainConstainer>
+    </MainContainer>
   );
 }
 
