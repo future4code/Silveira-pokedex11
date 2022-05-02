@@ -5,13 +5,14 @@ import DetailsPage from "../pages/DetailsPage/DetailsPage";
 import PokedexPage from "../pages/PokedexPage/PokedexPage";
 
 export const Router = () => {
+    
     return (
         <BrowserRouter>
-        <Routes>
-            <Route index element={<HomePage />} />
-            <Route path="/pokedex" element={<PokedexPage />}/>
-            <Route path="/details/:id" element={<DetailsPage />}/>
-        </Routes>
+            <Routes>
+                <Route index element={<HomePage />} />
+                <Route path="/pokedex" element={<PokedexPage />}/>
+                <Route path="/details/:id" element={<DetailsPage />}/>
+            </Routes>
         </BrowserRouter>
     )
 }

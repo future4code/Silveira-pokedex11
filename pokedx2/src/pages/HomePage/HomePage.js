@@ -1,9 +1,10 @@
 import React from "react";
+import { CardsContainer, HomePageContainer, MainContainer, SelectCategory } from "../../styles/styles";
 
-function HomePage() {
+export default function HomePage() {
 
     return (
-        <div>
+        <MainContainer>
             <HomePageContainer>
                 <h1>Pokémon</h1>
                 <SelectCategory>
@@ -13,9 +14,8 @@ function HomePage() {
  
                 </CardsContainer>
             </HomePageContainer>
-        </div>
+        </MainContainer>
 
     )
 }
 
-export default HomePage
