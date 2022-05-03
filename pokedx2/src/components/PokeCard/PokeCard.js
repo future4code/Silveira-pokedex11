@@ -4,9 +4,18 @@ import {goToPage} from "../../routes/coordinator"
 import { getPokemons, getDetailPokemon, getPokemonsTypes } from '../../services/requests';
 import { useNavigate } from 'react-router-dom'
 
+
 const PokeCard = () => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  // useEffect (() => {
+  //   detailPokemon()
+  // },[])
+
+  // const detailPokemon = () => {
+  //   getDetailPokemon();
+  // }
 
   return (
     <Container>
