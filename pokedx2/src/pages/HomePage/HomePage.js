@@ -4,7 +4,6 @@ import PokeCard from "../../components/PokeCard/PokeCard";
 import Grid from "../../components/Grid/Grid";
 import { HomeContainer } from "./style";
 
-
 export default function HomePage() {
 
     return (
