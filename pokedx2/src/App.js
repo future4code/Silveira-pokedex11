@@ -16,7 +16,7 @@ import Router from './routes/Router';
 
 		return (
 			<> 
-        <GlobalStyled />
+        		<GlobalStyled />
 				<Router /> 
 			</>
 
