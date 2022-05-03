@@ -13,14 +13,14 @@ const ContainerGrid = styled.div`
 	padding: 10px;
 `
 
-const Grid = () => {
-	const [pokemons,setPokemons] = useState({});
+const Grid = (props) => {
+	// const [pokemons,setPokemons] = useState({});
 
-	useEffect(()=>{
-		setPokemons(getAllPokemons(setPokemons,30,0))
-		console.log(pokemons);
+	// useEffect(()=>{
+	// 	setPokemons(getAllPokemons(setPokemons,30,0))
+	// 	console.log(pokemons);
 		
-	},[])
+	// },[])
 
 	// const pokemon = pokemons.results.map((poke) => {
 	// 	if (poke === undefined){
@@ -33,22 +33,18 @@ const Grid = () => {
 	// 	)
 	// })
 	
-
+	const list = props.Pokemons && props.Pokemons.map((poke) => {
+		return(
+			<PokeCard 
+				name={poke.name}
+			/>
+		)
+	})
+	console.log(props.Pokemons);
 		return (
 			<>
 				<ContainerGrid >
-				<PokeCard />
-				<PokeCard />
-				<PokeCard />
-				<PokeCard />
-				<PokeCard />
-				<PokeCard />
-				<PokeCard />
-				<PokeCard />
-				<PokeCard />
-				<PokeCard />
-				<PokeCard />
-				<PokeCard />
+					{list}
 				</ContainerGrid>
 
 			</>
