@@ -1,21 +1,12 @@
-import react from 'react';
+import React from 'react'
+import Header from './Header/Header'
 
-// colocar os imports de libs
-import styled from 'styled-components';
-
-
-// colocar as importacoes de todos os arquivos de codigos do projeto
-import {MainContainer, Button, Headers } from '../../styles/styles';
-
-
-
-const PokedexPage = (props) => {
-
-    return(
-        <MainContainer>
-            
-        </MainContainer>
-    )
+const PokedexPage = () => {
+  return (
+    <div>
+      <Header />
+    </div>
+  )
 }
 
-export default PokedexPage;
+export default PokedexPage
