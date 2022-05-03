@@ -2,26 +2,23 @@ import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import styled from "styled-components";
 import axios from "axios";
-
 import PokeCard from "../../components/PokeCard/PokeCard";
-
-import { HomeContainer } from "./style";
+import { HomeContainer, SelectCategory, ContainerGrid } from "./style";
+import { getPokemonsTypes } from '../../services/requests';
 import { getAllPokemons } from "../../constants/Api";
 import { url } from "../../constants/url";
 
 
-const ContainerGrid = styled.div`
-	border: dotted black 1px;
-	display: grid;
-	grid-template-columns: repeat(auto-fill, 200px);
-	justify-content: center;
-	grid-gap: 15px;
-	padding: 10px;
-`
-
 export default function HomePage() {
 	const [pokemons,setPokemons] = useState([]);
 	const [pokeInform,setPokeInform] = useState([]);
+	const [categories, setCategories] = useState([])
+    const [currentCategory, setCurrentCategory] = useState('all')
+
+	useEffect(() => {
+        getPokemonsTypes(setCategories)
+    }, [])
+
 	
 	useEffect(()=>{
 		getAllPokemons(setPokemons,30,0)
@@ -66,11 +63,26 @@ export default function HomePage() {
 		)
 	})
 
+	const renderCategories = categories.map((categorie) => {
+		return (
+			<option key={categorie.name} value={categorie.name}>{categorie.name}</option>
+		)
+	})
+  
+	const handleCategories = (e) => {
+		setCurrentCategory(e.target.value)
+  
+	}
+
 	return ( 
 		<HomeContainer>
 			<Header />
 
-			 
+			<SelectCategory  onChange={handleCategories}>
+                    <option value='all' defaultValue>Selecione um tipo de Pókemon</option>
+                    {renderCategories}
+                </SelectCategory>
+
 				<ContainerGrid>
 					{list}
 				</ContainerGrid>
