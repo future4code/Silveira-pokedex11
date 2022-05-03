@@ -1,21 +1,21 @@
 import React from "react";
+import Header from "../Header/Header";
+import PokeCard from "../../components/PokeCard/PokeCard";
+import Grid from "../../components/Grid/Grid";
+import { HomeContainer } from "./style";
 
-function HomePage() {
+
+export default function HomePage() {
 
     return (
-        <div>
-            <HomePageContainer>
-                <h1>Pokémon</h1>
-                <SelectCategory>
-                    <option>Tipo De Pokémon</option>
-                </SelectCategory>
-                <CardsContainer>
- 
-                </CardsContainer>
-            </HomePageContainer>
-        </div>
+        <HomeContainer>
+          <Header />
+          <Grid>
+            {<PokeCard />}
+
+          </Grid>
+        </HomeContainer>
 
     )
 }
 
-export default HomePage
