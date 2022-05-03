@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import {Container, Img, ContainerButton, Button} from "./style"
-
 import {goToPage} from "../../routes/coordinator"
+import { getPokemons, getDetailPokemon, getPokemonsTypes } from '../../services/requests';
 import { useNavigate } from 'react-router-dom'
-
-
 
 const PokeCard = () => {
 
