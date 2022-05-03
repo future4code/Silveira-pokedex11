@@ -4,7 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 
 import PokeCard from "../../components/PokeCard/PokeCard";
-import Grid from "../../components/Grid/Grid";
+
 import { HomeContainer } from "./style";
 import { getAllPokemons } from "../../constants/Api";
 import { url } from "../../constants/url";
@@ -28,7 +28,10 @@ export default function HomePage() {
 		console.log('-----');
 		console.log(pokemons);
 	},[])
+	console.log('========');
+	console.log('state pokemons');
 	console.log(pokemons);
+	console.log('-------');
 	
 
 	useEffect(() => {
@@ -57,8 +60,8 @@ export default function HomePage() {
 	const list = pokeInform && pokeInform.map((poke) => {
 		return(
 			<PokeCard key={poke.id}
-			img={poke.sprites.front_default}
-				// name={poke.name}
+				img={poke.sprites.front_default}
+				
 			/>
 		)
 	})
@@ -66,12 +69,7 @@ export default function HomePage() {
 	return ( 
 		<HomeContainer>
 			<Header />
-			{/* <Grid
-				Pokemons={pokemons.length === 30 ? pokemons : 'deu erro msm'}
-			> */}
-				{/* {pokemon} */}
-			{/* 
-			 */}
+
 			 
 				<ContainerGrid>
 					{list}
@@ -82,7 +80,12 @@ export default function HomePage() {
 	)
 }
 
-	
+				{/* <Grid
+				Pokemons={pokemons.length === 30 ? pokemons : 'deu erro msm'}
+			> */}
+				{/* {pokemon} */}
+			{/* 
+			 */}
 	// const pokemon = () => {
 	// 	setPokemons(getAllPokemons(setPokemons,30,0))
 	// 	console.log(pokemons.results);
