@@ -10,7 +10,7 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <Container>
-      <Button onClick={() => goToPage(navigate, "/")}>Voltar para a lista de Pokémons</Button>
+      <Button onClick={() => goToPage(navigate, -1)}>Voltar </Button>
       <Title>Pokédex</Title>
 
     </Container>
