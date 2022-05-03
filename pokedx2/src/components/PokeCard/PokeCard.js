@@ -7,27 +7,25 @@ import { useNavigate } from 'react-router-dom'
 
 const PokeCard = (props) => {
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
+	
+	const funcaoclick = () => {
 
-  // useEffect (() => {
-  //   detailPokemon()
-  // },[])
+		goToPage(navigate, "/details")
+	
+	}
 
-  // const detailPokemon = () => {
-  //   getDetailPokemon();
-  // }
-
-  return (
-    <Container>
-      <Img src={props.img} alt="teste" />
-      {/* <p>{props.name && props.name}</p> */}
-      <ContainerButton>
-        <Button>Adicionar a Pokédex</Button>
-        <Button onClick={() => goToPage(navigate, "/details")} >Ver detalhes</Button>
-      </ContainerButton>
-      
-    </Container>
-  )
+	return (
+		<Container>
+		<Img src={props.Poke.sprites.front_default} alt="teste" />
+		{/* <p>{props.name && props.name}</p> */}
+		<ContainerButton>
+			<Button>Adicionar a Pokédex</Button>
+			<Button onClick={() => funcaoclick() } >Ver detalhes</Button>
+		</ContainerButton>
+		
+		</Container>
+	)
 }
 
 export default PokeCard

@@ -60,7 +60,7 @@ export default function HomePage() {
 	const list = pokeInform && pokeInform.map((poke) => {
 		return(
 			<PokeCard key={poke.id}
-				img={poke.sprites.front_default}
+				Poke={poke}
 				
 			/>
 		)
