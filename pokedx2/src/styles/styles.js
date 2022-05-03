@@ -1,6 +1,15 @@
 // esse arquivo estao os codigos de css que serao usados
 
-import styled from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
+
+export const GlobalStyled = createGlobalStyle`
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+  }
+`
 
 export const MainContainer = styled.div`
   display:flex;

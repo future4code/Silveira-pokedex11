@@ -1,5 +1,5 @@
-import react from 'react';
-
+import React from 'react';
+import Header from "./Header/Header"
 // colocar os imports de libs
 import {useNavigate} from 'react-router-dom';
 // import styled from 'styled-components';
@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom';
 
 // colocar as importacoes de todos os arquivos de codigos do projeto
 import { goBack } from '../../routes/coordinator';
-import {MainContainer, Button, Header, InfoContainer, Img, Stats, Type, Moves } from '../../styles/styles';
+import {MainContainer, Button, InfoContainer, Img, Stats, Type, Moves } from '../../styles/styles';
 
 
 const DetailPage = (props) => {
@@ -15,8 +15,10 @@ const DetailPage = (props) => {
 
 
     return(
-        <MainContainer>
-            <Header>
+        <>
+
+          <Header />
+            {/* <Header>
 
                 <Button 
                     onClick={() => {goBack(navigate)}}
@@ -24,7 +26,7 @@ const DetailPage = (props) => {
                 <h2>NOME DO POKEMON</h2>
                 <Button>BOTÃO ADICIONAR/REMOVER DA POKEDEX</Button>
 
-            </Header>
+            </Header> */}
             <InfoContainer>
                 <InfoContainer>
                     <Img
@@ -43,7 +45,7 @@ const DetailPage = (props) => {
             </InfoContainer>
             
 
-        </MainContainer>
+        </>
     )
     
 }

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 
 // colocar as importacoes de todos os arquivos de codigos do projeto
-import { MainContainer } from './styles/styles';
+import { MainContainer, GlobalStyled } from './styles/styles';
 import Router from './routes/Router';
 
 
@@ -16,6 +16,7 @@ import Router from './routes/Router';
 
 		return (
 			<> 
+        <GlobalStyled />
 				<Router /> 
 			</>
 
