@@ -4,8 +4,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
 import PokedexPage from "../pages/PokedexPage/PokedexPage";
 
-export const Router = (props) => {
-    const [pokedex, setPokedex] = useState([])
+export const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
@@ -13,18 +12,12 @@ export const Router = (props) => {
                 <Route 
                     path="/pokedex" 
                     element={
-                        <PokedexPage  
-					        Pokedex={pokedex}
-					        setPokedex={setPokedex}	
-				        />}
+                        <PokedexPage />}
                     />
                 <Route 
                     path="/details" 
                     element={
-                        <DetailsPage  
-                            Pokedex={pokedex}
-                            setPokedex={setPokedex}	
-                        />}
+                        <DetailsPage />}
                 />
             </Routes>
         </BrowserRouter>
