@@ -7,13 +7,11 @@ import { HomeContainer, SelectCategory, ContainerGrid } from "./style";
 import { getPokemonsTypes } from '../../services/requests';
 import { getAllPokemons } from "../../constants/Api";
 import { url } from "../../constants/url";
-import { GlobalStateContext } from "../../global/GlobalStateContext";
 
 
 export default function HomePage() {
-
 	
-	const [pokemons,setPokemons] = useContext(GlobalStateContext);
+	const [pokemons,setPokemons] = useState([]);
 	const [pokeInform,setPokeInform] = useState([]);
 	const [categories, setCategories] = useState([])
     const [currentCategory, setCurrentCategory] = useState('all')
