@@ -51,7 +51,7 @@ export default function HomePage() {
 			})
 		})
 	},[pokemons])
- 
+
 
 	
 	const list = pokeInform && pokeInform.map((poke) => {
@@ -75,7 +75,8 @@ export default function HomePage() {
 	}
 
 	return ( 
-		<HomeContainer>
+    
+    <HomeContainer>
 			<Header />
 
 			<SelectCategory  onChange={handleCategories}>
