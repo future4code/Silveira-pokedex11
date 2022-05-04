@@ -16,11 +16,11 @@ import GlobalState from './context/GlobalState';
 
 		return (
 			<> 
-        <GlobalStyled />
+        		<GlobalStyled />
 
-        <GlobalState>
-				  <Router /> 
-        </GlobalState>
+        		<GlobalState>
+				  	<Router /> 
+        		</GlobalState>
 			</>
 
 

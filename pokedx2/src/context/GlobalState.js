@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import React, {useState, useEffect} from 'react'
-import { GlobalStateContaxt } from './GlobalStateContext'
+import { GlobalStateContext } from './GlobalStateContext'
 
 const GlobalState = (props) => {
 
@@ -15,9 +15,9 @@ const GlobalState = (props) => {
 
 
   return (
-    <GlobalStateContaxt.Provider value={{states, setters}}>
+    <GlobalStateContext.Provider value={{states, setters}}>
       {props.children}
-    </GlobalStateContaxt.Provider>
+    </GlobalStateContext.Provider>
   )
 }
 

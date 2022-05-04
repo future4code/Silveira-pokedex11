@@ -92,17 +92,3 @@ export default function HomePage() {
 
 	)
 }
-
-				{/* <Grid
-				Pokemons={pokemons.length === 30 ? pokemons : 'deu erro msm'}
-			> */}
-				{/* {pokemon} */}
-			{/* 
-			 */}
-	// const pokemon = () => {
-	// 	setPokemons(getAllPokemons(setPokemons,30,0))
-	// 	console.log(pokemons.results);
-	// 	return(
-	// 		<PokeCard />
-	// 	)
-	// }
