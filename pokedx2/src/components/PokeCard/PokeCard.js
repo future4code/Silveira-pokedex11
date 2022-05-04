@@ -11,13 +11,13 @@ const PokeCard = (props) => {
 	
 	const funcaoclick = () => {
 
-		goToPage(navigate, "/details")
+		goToPage(navigate, `/details/${props.Poke.name}`)
 	
 	}
 
 	return (
 		<Container>
-			<PokemonNameCard>{props.name}</PokemonNameCard>
+			<PokemonNameCard>{props.Poke.name}</PokemonNameCard>
 		<Img src={props.Poke.sprites.front_default} alt="teste" />
 		<ContainerButton>
 			<Button>Adicionar a Pokédex</Button>

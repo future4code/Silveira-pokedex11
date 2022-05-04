@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+
 import Header from "../Header/Header";
 import styled from "styled-components";
 import axios from "axios";
@@ -7,6 +8,7 @@ import { HomeContainer, SelectCategory, ContainerGrid } from "./style";
 import { getPokemonsTypes } from '../../services/requests';
 import { getAllPokemons } from "../../constants/Api";
 import { url } from "../../constants/url";
+import { useGlobal } from "../../context/GlobalStateContext";
 
 
 export default function HomePage() {
@@ -15,6 +17,8 @@ export default function HomePage() {
 	const [pokeInform,setPokeInform] = useState([]);
 	const [categories, setCategories] = useState([])
     const [currentCategory, setCurrentCategory] = useState('all')
+
+	const {states, setters} = useGlobal()
 
 	useEffect(() => {
         getPokemonsTypes(setCategories)
@@ -72,24 +76,18 @@ export default function HomePage() {
   
 	const handleCategories = (e) => {
 		setCurrentCategory(e.target.value)
-  
 	}
 
 	return ( 
-    
     <HomeContainer>
 			<Header />
-
 			<SelectCategory  onChange={handleCategories}>
                     <option value='all' defaultValue>Selecione um tipo de Pókemon</option>
                     {renderCategories}
                 </SelectCategory>
-
 				<ContainerGrid>
 					{list}
 				</ContainerGrid>
-
 		</HomeContainer>
-
 	)
 }
