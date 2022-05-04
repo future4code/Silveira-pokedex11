@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Header from "../Header/Header";
 import styled from "styled-components";
 import axios from "axios";
@@ -7,10 +7,13 @@ import { HomeContainer, SelectCategory, ContainerGrid } from "./style";
 import { getPokemonsTypes } from '../../services/requests';
 import { getAllPokemons } from "../../constants/Api";
 import { url } from "../../constants/url";
+import { GlobalStateContext } from "../../global/GlobalStateContext";
 
 
 export default function HomePage() {
-	const [pokemons,setPokemons] = useState([]);
+
+	
+	const [pokemons,setPokemons] = useContext(GlobalStateContext);
 	const [pokeInform,setPokeInform] = useState([]);
 	const [categories, setCategories] = useState([])
     const [currentCategory, setCurrentCategory] = useState('all')
