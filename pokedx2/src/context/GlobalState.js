@@ -16,14 +16,13 @@ export default function GlobalState(props) {
 	
 	const getAllPokemons = async ( setPokemons,limit,comeco  ) => {//pegar a lista de pokemons da API
 		try {
+
 			let diferenca = limit - comeco;
+
 			if (limit>comeco && diferenca >= 20){
-				
 				const response = await axios.get(`${url}?limit=${limit}&offset=${comeco}`)
 				setPokemons( response.data.results) 
-				
 			} else{
-
 				return 'erro';
 			}
 			
@@ -41,6 +40,7 @@ export default function GlobalState(props) {
 			const response = await axios.get(`${url}/${idDoPokemon}`)
 			console.log('deu certo o getPokemonDetail');
 			console.log(response);
+			setPokeInfo(response)
 
 		} catch (err) {
 			console.log('deu erro no getPokemonsDetail');
@@ -51,23 +51,25 @@ export default function GlobalState(props) {
 	const getPokemonsTypes = (set) => {
 		axios
 		.get(`https://pokeapi.co/api/v2/type`)
-		.then((res) => {
-			set(res.data.results)
-		})
-		.catch((err) => {
-			console.log(err)
-		})
+			.then((res) => {
+				set(res.data.results)
+			})
+			.catch((err) => {
+				console.log(err)
+			})
 	}
 
 
 
-	const states = {pokemons, pokedex}
-	const setters = {setPokemons, setPokedex}
+	const states = {pokemons,pokedex,pokeInform,categories,currentCategory}
+//						\		  \          \       `````---___      ````---___   
+	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory}
+
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
 
 
 	return (
-			<GlobalStateContext.Provider value={{states, setters,requests}}>
+			<GlobalStateContext.Provider value={{states,setters,requests}}>
 				{props.children}
 			</GlobalStateContext.Provider>
 		)

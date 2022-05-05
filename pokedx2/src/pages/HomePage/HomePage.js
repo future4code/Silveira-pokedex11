@@ -15,28 +15,29 @@ import { url } from "../../constants/url";
 
 export default function HomePage() {
 	
-	const [pokemons,setPokemons] = useState([]);
-	const [pokeInform,setPokeInform] = useState([]);
-	const [categories, setCategories] = useState([])
-    const [currentCategory, setCurrentCategory] = useState('all')
+	// const [pokemons,setPokemons] = useState([]);
+	// const [pokeInform,setPokeInform] = useState([]);
+	// const [categories, setCategories] = useState([])
+    // const [currentCategory, setCurrentCategory] = useState('all')
 
-	const {states, setters} = useGlobal()
+	const {states,setters,requests} = useGlobal()
 
 	useEffect(() => {
-        getPokemonsTypes(setCategories)
+        // getPokemonsTypes(setCategories)
+		requests.getPokemonsTypes(setters.setCategories)
     }, [])
 
 	
 	useEffect(()=>{
-		getAllPokemons(setPokemons,30,0)
-
+		// getAllPokemons(setPokemons,30,0)
+		requests.getAllPokemons(setters.setPokemons,30,0)
 	},[])
 
 	
 
 	useEffect(() => {
 		const listnew = [];
-		pokemons && pokemons.forEach((poke)=>{
+		states.pokemons && states.pokemons.forEach((poke)=>{
 			//colocar o da api
 			axios.get(`${url}/${poke.name}`)
 			.then((res)=>{
@@ -45,13 +46,12 @@ export default function HomePage() {
 				// console.log(listnew);
 				// console.log('=====listnew =====');
 				if (listnew.length === 30) {
-					setPokeInform(listnew)
-					for(let i=0;i===2;i++){
-						
-					console.log('=======');
-					console.log(pokeInform);
-					console.log('=======');
+					setters.setPokeInform(listnew)
+					if (states.pokeInform.length != 0 ) {
+						console.log(states.pokeInform);
+						console.log('------');
 					}
+					
 				}
 				// console.log(res.data.sprites.front_default);
 			
@@ -59,11 +59,11 @@ export default function HomePage() {
 				console.log(err);
 			})
 		})
-	},[pokemons])
+	},[states.pokemons])
 
 
 	
-	const list = pokeInform && pokeInform.map((poke) => {
+	const list = states.pokeInform && states.pokeInform.map((poke) => {
 		return(
 			<PokeCard key={poke.id}
 				Poke={poke}
@@ -72,14 +72,14 @@ export default function HomePage() {
 		)
 	})
 
-	const renderCategories = categories.map((categorie) => {
+	const renderCategories = states.categories.map((categorie) => {
 		return (
 			<option key={categorie.name} value={categorie.name}>{categorie.name}</option>
 		)
 	})
   
-	const handleCategories = (e) => {
-		setCurrentCategory(e.target.value)
+	const handleCategories = e => {
+		setters.setCurrentCategory(e.target.value)
 	}
 
 	return ( 
