@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from "./Header/Header"
 // colocar os imports de libs
 import {useNavigate, useParams} from 'react-router-dom';
@@ -8,15 +8,24 @@ import {useNavigate, useParams} from 'react-router-dom';
 // import { goBack } from '../../routes/coordinator';
 // import {MainContainer, Button, InfoContainer, Img, Stats, Type, Moves } from '../../styles/styles';
 import {Container, ContainerImg, ContainerPowers, ContainerDetails, ContainerType, ContainerAttack} from "./styled"
+import { useGlobal } from '../../context/GlobalStateContext';
 
-const DetailPage = (props) => {
-    const navigate = useNavigate();
+const DetailPage = () => {
+    
+	const {states,setters,requests} = useGlobal()
 
+	const navigate = useNavigate();
 	const { poke } = useParams();
+
+	console.log('=======');
+	console.log(states.pokeInfo.sprites);
+	console.log('=======');
+
+	useEffect(() => {
+		requests.getPokemonsDetail(poke,setters.setPokeInfo)
+	},[])
 	
-	console.log('--------');
-	console.log(poke)
-	console.log('--------');
+	// sprites.front_default
 
     return(
         <>

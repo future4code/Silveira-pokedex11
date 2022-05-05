@@ -10,9 +10,10 @@ export default function GlobalState(props) {
 	
 	const [pokemons,setPokemons] = useState([]);
 	const [pokeInform,setPokeInform] = useState([]);
-	const [categories, setCategories] = useState([])
-	const [currentCategory, setCurrentCategory] = useState('all')
-	const {pokedex, setPokedex} = useState(GlobalStateContext);
+	const [categories,setCategories] = useState([])
+	const [pokeInfo,setPokeInfo] = useState([])
+	const [currentCategory,setCurrentCategory] = useState('all')
+	const {pokedex,setPokedex} = useState(GlobalStateContext);
 	
 	const getAllPokemons = async ( setPokemons,limit,comeco  ) => {//pegar a lista de pokemons da API
 		try {
@@ -39,8 +40,8 @@ export default function GlobalState(props) {
 			
 			const response = await axios.get(`${url}/${idDoPokemon}`)
 			console.log('deu certo o getPokemonDetail');
-			console.log(response);
-			setPokeInfo(response)
+			console.log(response.data);
+			setPokeInfo(response.data)
 
 		} catch (err) {
 			console.log('deu erro no getPokemonsDetail');
@@ -61,9 +62,9 @@ export default function GlobalState(props) {
 
 
 
-	const states = {pokemons,pokedex,pokeInform,categories,currentCategory}
-//						\		  \          \       `````---___      ````---___   
-	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory}
+	const states = {pokemons,pokedex,pokeInform,categories,currentCategory,pokeInfo}
+//						\		  \          \       `````---___      ````---___ ````----______  
+	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory,setPokeInfo}
 
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
 
