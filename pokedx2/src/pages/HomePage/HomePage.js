@@ -48,9 +48,10 @@ export default function HomePage() {
 				if (listnew.length === 30) {
 					setters.setPokeInform(listnew)
 					if (states.pokeInform.length != 0 ) {
+						console.log(states.pokeInform.length);
 						console.log(states.pokeInform);
 						console.log('------');
-					}
+					} 
 					
 				}
 				// console.log(res.data.sprites.front_default);
