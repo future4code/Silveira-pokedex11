@@ -1,6 +1,6 @@
+
 import React, { useEffect, useState, useContext } from "react";
 
-// import styled from "styled-components";
 import axios from "axios";
 
 import PokeCard from "../../components/PokeCard/PokeCard";
@@ -14,11 +14,6 @@ import { url } from "../../constants/url";
 
 
 export default function HomePage() {
-	
-	// const [pokemons,setPokemons] = useState([]);
-	// const [pokeInform,setPokeInform] = useState([]);
-	// const [categories, setCategories] = useState([])
-    // const [currentCategory, setCurrentCategory] = useState('all')
 
 	const {states,setters,requests} = useGlobal()
 
@@ -48,11 +43,11 @@ export default function HomePage() {
 				// console.log('=====listnew =====');
 				if (listnew.length === 30) {
 					setters.setPokeInform(listnew)
-					// if (states.pokeInform.length != 0 ) {
-					// 	console.log(states.pokeInform.length);
+					if (states.pokeInform.length != 0 ) {
+						console.log(states.pokeInform.length);
 						console.log(states.pokeInform);
 						console.log('------');
-					// } 
+					} 
 					
 				}
 				// console.log(res.data.sprites.front_default);
@@ -61,7 +56,34 @@ export default function HomePage() {
 				console.log(err);
 			})
 		})
-	},[])
+	},[states.pokemons])
+
+//	useEffect(() => {
+//		const listnew = [];
+//		states.pokemons && states.pokemons.forEach((poke)=>{
+//			//colocar o da api
+//			axios.get(`${url}/${poke.name}`)
+//			.then((res)=>{
+//				listnew.push(res.data)
+//				// console.log('=====listnew =====');
+//				// console.log(listnew);
+//				// console.log('=====listnew =====');
+//				if (listnew.length === 30) {
+//					setters.setPokeInform(listnew)
+//					// if (states.pokeInform.length != 0 ) {
+//					// 	console.log(states.pokeInform.length);
+//						console.log(states.pokeInform);
+//						console.log('------');
+//					// } 
+//					
+//				}
+//				// console.log(res.data.sprites.front_default);
+//			
+//			}).catch((err) =>{
+//				console.log(err);
+//			})
+//		})
+//	},[])
 
 
 	
