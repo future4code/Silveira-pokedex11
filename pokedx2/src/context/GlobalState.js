@@ -14,68 +14,60 @@ export default function GlobalState(props) {
 	const [currentCategory, setCurrentCategory] = useState('all')
 	const {pokedex, setPokedex} = useState(GlobalStateContext);
 	
-	const states = {pokemons, pokedex}
-	const setters = {setPokemons, setPokedex}
+	const getAllPokemons = async ( setPokemons,limit,comeco  ) => {//pegar a lista de pokemons da API
+		try {
+			let diferenca = limit - comeco;
+			if (limit>comeco && diferenca >= 20){
+				
+				const response = await axios.get(`${url}?limit=${limit}&offset=${comeco}`)
+				setPokemons( response.data.results) 
+				
+			} else{
 
-	const getPokemonList = () => {//pegar a lista de pokemons da API
+				return 'erro';
+			}
+			
+		} catch (err) {
+			console.log('deu erro no getAllPokemons');
+			console.log(err.message);
+		}
+
+	}
+
+		
+	const getPokemonsDetail = async (idDoPokemon,setPokeInfo) => {
+		try {
+			
+			const response = await axios.get(`${url}/${idDoPokemon}`)
+			console.log('deu certo o getPokemonDetail');
+			console.log(response);
+
+		} catch (err) {
+			console.log('deu erro no getPokemonsDetail');
+			console.log(err.message);
+		}
+	}
+
+	const getPokemonsTypes = (set) => {
 		axios
-			.get(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=0`)
-			.then((response) => {
-				list(response.data.results);
-			})
-			.catch((error) => console.log(error.message));
-	};
-
-	useEffect(() => {
-		getPokemonList();
-	}, []);
-
-	useEffect(() => {
-		getPokemonsTypes(setCategories)
-	}, [])
-
-
-	useEffect(()=>{
-		getAllPokemons(setPokemons,30,0)
-
-	},[])
-		console.log('========');
-		console.log('state pokemons');
-		console.log(pokemons);
-		console.log('-------');
-
-
-	useEffect(() => {
-		const listnew = [];
-		pokemons && pokemons.forEach((poke)=>{
-		//colocar o da api
-		axios.get(`${url}/${poke.name}`)
-			.then((res)=>{
-				listnew.push(res.data)
-				if (listnew.length === 30) { setPokeInform( listnew ) }
-				// console.log(res.data.sprites.front_default);
-			}).catch((err) =>{ console.log(err.message); })
+		.get(`https://pokeapi.co/api/v2/type`)
+		.then((res) => {
+			set(res.data.results)
 		})
-	},[pokemons])
-
-	const list = pokeInform && pokeInform.map((poke) => {
-		return( <PokeCard key={poke.id} Poke={poke} /> )
-	})
-
-	const renderCategories = categories.map((categorie) => {
-		return (
-			<option key={categorie.name} value={categorie.name}>{categorie.name}</option> )
-	})
-
-	const handleCategories = (e) => {
-		setCurrentCategory(e.target.value)
-
+		.catch((err) => {
+			console.log(err)
+		})
 	}
 
 
 
+	const states = {pokemons, pokedex}
+	const setters = {setPokemons, setPokedex}
+	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
+
+
 	return (
-			<GlobalStateContext.Provider value={{states, setters}}>
+			<GlobalStateContext.Provider value={{states, setters,requests}}>
 				{props.children}
 			</GlobalStateContext.Provider>
 		)

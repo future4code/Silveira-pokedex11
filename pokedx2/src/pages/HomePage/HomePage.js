@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
 
-import Header from "../Header/Header";
-import styled from "styled-components";
+// import styled from "styled-components";
 import axios from "axios";
+
 import PokeCard from "../../components/PokeCard/PokeCard";
-import { HomeContainer, SelectCategory, ContainerGrid } from "./style";
-import { getPokemonsTypes } from '../../services/requests';
-import { getAllPokemons } from "../../constants/Api";
-import { url } from "../../constants/url";
+import Header from "../Header/Header";
+
 import { useGlobal } from "../../context/GlobalStateContext";
+import { HomeContainer, SelectCategory, ContainerGrid } from "./style";
+import { getPokemonsTypes, getAllPokemons } from '../../services/requests';
+// import { getAllPokemons } from "../../constants/Api";
+import { url } from "../../constants/url";
 
 
 export default function HomePage() {
@@ -27,13 +29,9 @@ export default function HomePage() {
 	
 	useEffect(()=>{
 		getAllPokemons(setPokemons,30,0)
-		console.log('-----');
-		console.log(pokemons);
+
 	},[])
-	console.log('========');
-	console.log('state pokemons');
-	console.log(pokemons);
-	console.log('-------');
+
 	
 
 	useEffect(() => {
@@ -43,16 +41,22 @@ export default function HomePage() {
 			axios.get(`${url}/${poke.name}`)
 			.then((res)=>{
 				listnew.push(res.data)
-				console.log(listnew);
+				// console.log('=====listnew =====');
+				// console.log(listnew);
+				// console.log('=====listnew =====');
 				if (listnew.length === 30) {
 					setPokeInform(listnew)
+					for(let i=0;i===2;i++){
+						
+					console.log('=======');
+					console.log(pokeInform);
+					console.log('=======');
+					}
 				}
 				// console.log(res.data.sprites.front_default);
-				
+			
 			}).catch((err) =>{
-
 				console.log(err);
-
 			})
 		})
 	},[pokemons])

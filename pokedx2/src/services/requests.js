@@ -1,26 +1,37 @@
 import axios from "axios";
 import { url } from "../constants/url";
 
-export const getPokemons = (saveData) => {
-    axios
-    .get(url)
-    .then((res) => {
-        saveData(res.data.results)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+export const getAllPokemons = async (setPokemons,limit,comeco  ) => {
+    try {
+        let diferenca = limit - comeco;
+        if (limit>comeco && diferenca >= 20){
+            
+            const response = await axios.get(`${url}?limit=${limit}&offset=${comeco}`)
+            setPokemons( response.data.results) 
+            
+        } else{
+
+            return 'erro';
+        }
+        
+    } catch (err) {
+        console.log('deu erro no getAllPokemons');
+        console.log(err.message);
+    }
+
 }
 
-export const getDetailPokemon = (idUrl, set) => {
-    axios
-    .get(idUrl)
-    .then((res) => {
-        set(res.data)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+export const getPokemonsDetail = async (idDoPokemon,setPokeInfo) => {
+    try {
+        
+        const response = await axios.get(`${url}/${idDoPokemon}`)
+        console.log('deu certo o getPokemonDetail');
+        console.log(response);
+
+    } catch (err) {
+        console.log('deu erro no getPokemonsDetail');
+        console.log(err.message);
+    }
 }
 
 export const getPokemonsTypes = (set) => {
