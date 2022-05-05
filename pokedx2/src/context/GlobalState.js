@@ -9,10 +9,10 @@ import { url } from "../constants/url";
 export default function GlobalState(props) {
 	
 	const [pokemons,setPokemons] = useState([]);
+	const [pokedex, setPokedex] = useState([]);
 	const [pokeInform,setPokeInform] = useState([]);
 	const [categories, setCategories] = useState([])
 	const [currentCategory, setCurrentCategory] = useState('all')
-	const {pokedex, setPokedex} = useState(GlobalStateContext);
 	
 	const getAllPokemons = async ( setPokemons,limit,comeco  ) => {//pegar a lista de pokemons da API
 		try {
@@ -62,7 +62,6 @@ export default function GlobalState(props) {
 
 
 	const states = {pokemons,pokedex,pokeInform,categories,currentCategory}
-//						\		  \          \       `````---___      ````---___   
 	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory}
 
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
