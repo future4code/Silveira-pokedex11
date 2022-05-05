@@ -6,15 +6,19 @@ import axios from "axios";
 import PokeCard from "../../components/PokeCard/PokeCard";
 import Header from "../Header/Header";
 
-import { useGlobal } from "../../context/GlobalStateContext";
+import { GlobalStateContext } from "../../context/GlobalStateContext";
 import { HomeContainer, SelectCategory, ContainerGrid } from "./style";
 
 import { url } from "../../constants/url";
 
+  const HomePage = () => {
+	
+	// const [pokemons,setPokemons] = useState([]);
+	// const [pokeInform,setPokeInform] = useState([]);
+	// const [categories, setCategories] = useState([])
+  // const [currentCategory, setCurrentCategory] = useState('all')
 
-export default function HomePage() {
-
-	const {states,setters,requests} = useGlobal()
+  const { states, setters, requests } = useContext(GlobalStateContext)
 
 	useEffect(() => {
         // getPokemonsTypes(setCategories)
@@ -88,8 +92,10 @@ export default function HomePage() {
 	
 	const list = states.pokeInform && states.pokeInform.map((poke) => {
 		return(
-			<PokeCard key={poke.id}
-				Poke={poke}
+			<PokeCard
+        Pokedex={false}
+        key={poke.id}
+				details={poke}
 				
 			/>
 		)
@@ -118,3 +124,5 @@ export default function HomePage() {
 		</HomeContainer>
 	)
 }
+
+export default HomePage;

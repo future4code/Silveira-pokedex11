@@ -9,6 +9,7 @@ import { url } from "../constants/url";
 export default function GlobalState(props) {
 	
 	const [pokemons,setPokemons] = useState([]);
+	const [pokedex, setPokedex] = useState([]);
 	const [pokeInform,setPokeInform] = useState([]);
 	const [categories,setCategories] = useState([])
 	const [pokeInfo,setPokeInfo] = useState([])
@@ -65,10 +66,9 @@ export default function GlobalState(props) {
 	}
 
 
+	const states = {pokemons,pokedex,pokeInform,categories,currentCategory}
+	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory}
 
-	const states = {pokemons,pokedex,pokeInform,categories,currentCategory,pokeInfo}
-//						\		  \          \       `````---___      ````---___ ````----______  
-	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory,setPokeInfo}
 
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
 
