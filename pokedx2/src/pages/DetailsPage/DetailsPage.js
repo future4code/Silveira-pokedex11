@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from "./Header/Header"
 // colocar os imports de libs
 import {useNavigate, useParams} from 'react-router-dom';
@@ -8,15 +8,31 @@ import {useNavigate, useParams} from 'react-router-dom';
 // import { goBack } from '../../routes/coordinator';
 // import {MainContainer, Button, InfoContainer, Img, Stats, Type, Moves } from '../../styles/styles';
 import {Container, ContainerImg, ContainerPowers, ContainerDetails, ContainerType, ContainerAttack} from "./styled"
+import { useGlobal } from '../../context/GlobalStateContext';
 
-const DetailPage = (props) => {
-    const navigate = useNavigate();
+const DetailPage = () => {
+    
+	const {states,setters,requests} = useGlobal()
 
+	const navigate = useNavigate();
 	const { poke } = useParams();
+
+	useEffect(() => {
+		requests.getPokemonsDetail(poke,setters.setPokeInfo)
+	},[setters.setPokeInfo])
 	
-	console.log('--------');
-	console.log(poke)
-	console.log('--------');
+	console.log('=======');
+	console.log(states.pokeInfo);
+	console.log('=======');
+
+	// sprites.front_default
+	const imgFunc = type => {
+		if (states.pokeInfo.sprites.front_default== undefined){
+			return "http://3.bp.blogspot.com/_M82AcW40FFc/SwrH0Cci3cI/AAAAAAAAAEQ/guCMPwYawwo/s1600/mr+burns.jpg"
+		} else {
+			return states.pokeInfo.sprites.type
+		}		
+	}
 
     return(
         <>
@@ -25,8 +41,16 @@ const DetailPage = (props) => {
 
 			<Container>
 				<ContainerImg>
-					<img 		src="http://3.bp.blogspot.com/_M82AcW40FFc/SwrH0Cci3cI/AAAAAAAAAEQ/guCMPwYawwo/s1600/mr+burns.jpg" alt="" />
-					<img src="http://3.bp.blogspot.com/_M82AcW40FFc/SwrH0Cci3cI/AAAAAAAAAEQ/guCMPwYawwo/s1600/mr+burns.jpg" alt="" />
+
+					<img 
+						src="http://3.bp.blogspot.com/_M82AcW40FFc/SwrH0Cci3cI/AAAAAAAAAEQ/guCMPwYawwo/s1600/mr+burns.jpg"
+					 	alt={`imagem do ${poke} de frente`} 
+					/>
+					<img 
+						src="http://3.bp.blogspot.com/_M82AcW40FFc/SwrH0Cci3cI/AAAAAAAAAEQ/guCMPwYawwo/s1600/mr+burns.jpg" 
+						alt={`imagem do ${poke} de costas`} 
+					/>
+
 				</ContainerImg>
 
 				<ContainerPowers>

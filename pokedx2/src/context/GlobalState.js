@@ -11,17 +11,23 @@ export default function GlobalState(props) {
 	const [pokemons,setPokemons] = useState([]);
 	const [pokedex, setPokedex] = useState([]);
 	const [pokeInform,setPokeInform] = useState([]);
-	const [categories, setCategories] = useState([])
-	const [currentCategory, setCurrentCategory] = useState('all')
+	const [categories,setCategories] = useState([])
+	const [pokeInfo,setPokeInfo] = useState([])
+	const [currentCategory,setCurrentCategory] = useState('all')
+	const {pokedex,setPokedex} = useState(GlobalStateContext);
 	
-	const getAllPokemons = async ( setPokemons,limit,comeco  ) => {//pegar a lista de pokemons da API
+	const getAllPokemons = async ( setPokemons,limit,começo  ) => {//pegar a lista de pokemons da API
 		try {
 
-			let diferenca = limit - comeco;
+			let diferenca = limit - começo;
 
-			if (limit>comeco && diferenca >= 20){
-				const response = await axios.get(`${url}?limit=${limit}&offset=${comeco}`)
+			if (limit > começo && diferenca >= 20){
+				const response = await axios.get(`${url}?limit=${limit}&offset=${começo}`)
 				setPokemons( response.data.results) 
+				console.log('===')
+				console.log('deu certo o getAll')
+				console.log(response.data.results);
+				console.log('===')
 			} else{
 				return 'erro';
 			}
@@ -39,8 +45,8 @@ export default function GlobalState(props) {
 			
 			const response = await axios.get(`${url}/${idDoPokemon}`)
 			console.log('deu certo o getPokemonDetail');
-			console.log(response);
-			setPokeInfo(response)
+			console.log(response.data);
+			setPokeInfo(response.data)
 
 		} catch (err) {
 			console.log('deu erro no getPokemonsDetail');
@@ -60,9 +66,9 @@ export default function GlobalState(props) {
 	}
 
 
-
 	const states = {pokemons,pokedex,pokeInform,categories,currentCategory}
 	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory}
+
 
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
 
