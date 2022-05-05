@@ -16,38 +16,41 @@ const DetailPage = () => {
 
 	const navigate = useNavigate();
 	const { poke } = useParams();
-
+	
 	useEffect(() => {
-		requests.getPokemonsDetail(poke,setters.setPokeInfo)
+		requests.getPokemonsDetail(poke, setters.setPokeInfo)
 	},[setters.setPokeInfo])
 	
-	console.log('=======');
+	console.log('pokemon info');
 	console.log(states.pokeInfo);
-	console.log('=======');
+	console.log(states.pokeInfo.name);
+	console.log('kkkkkkk');
 
 	// sprites.front_default
-	const imgFunc = type => {
-		if (states.pokeInfo.sprites.front_default== undefined){
-			return "http://3.bp.blogspot.com/_M82AcW40FFc/SwrH0Cci3cI/AAAAAAAAAEQ/guCMPwYawwo/s1600/mr+burns.jpg"
-		} else {
-			return states.pokeInfo.sprites.type
-		}		
-	}
+	// const imgFunc = type => {
+	// 	if (states.pokeInfo.sprites == undefined){
+	// 		return "http://3.bp.blogspot.com/_M82AcW40FFc/SwrH0Cci3cI/AAAAAAAAAEQ/guCMPwYawwo/s1600/mr+burns.jpg"
+	// 	} else {
+	// 		return states.pokeInfo.sprites.type
+	// 	}		
+	// }
+	
 
     return(
         <>
 
 			<Header />
-
+{
+	states.pokeInfo.name &&
 			<Container>
 				<ContainerImg>
 
 					<img 
-						src="http://3.bp.blogspot.com/_M82AcW40FFc/SwrH0Cci3cI/AAAAAAAAAEQ/guCMPwYawwo/s1600/mr+burns.jpg"
+						src={states.pokeInfo.sprites.front_default}
 					 	alt={`imagem do ${poke} de frente`} 
 					/>
 					<img 
-						src="http://3.bp.blogspot.com/_M82AcW40FFc/SwrH0Cci3cI/AAAAAAAAAEQ/guCMPwYawwo/s1600/mr+burns.jpg" 
+						src={states.pokeInfo.sprites.back_default }
 						alt={`imagem do ${poke} de costas`} 
 					/>
 
@@ -80,7 +83,7 @@ const DetailPage = () => {
 
 				</ContainerDetails>
 			</Container>
-
+}
         </>
     )
     

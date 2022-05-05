@@ -13,7 +13,7 @@ const PokeCard = (props) => {
 	
 
 	const funcaoclick = () => {
-		goToPage(navigate, `/details/${props.Poke.name}`)
+		goToPage(navigate, `/details/${states.Poke.name}`)
 	
 	}
 

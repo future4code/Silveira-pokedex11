@@ -14,7 +14,7 @@ export default function GlobalState(props) {
 	const [categories,setCategories] = useState([])
 	const [pokeInfo,setPokeInfo] = useState([])
 	const [currentCategory,setCurrentCategory] = useState('all')
-	const {pokedex,setPokedex} = useState(GlobalStateContext);
+
 	
 	const getAllPokemons = async ( setPokemons,limit,começo  ) => {//pegar a lista de pokemons da API
 		try {
