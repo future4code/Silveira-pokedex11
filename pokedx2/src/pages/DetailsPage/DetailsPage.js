@@ -1,3 +1,5 @@
+
+
 import React, { useEffect } from 'react';
 import Header from "./Header/Header"
 // colocar os imports de libs
@@ -46,11 +48,11 @@ const DetailPage = () => {
 				<ContainerImg>
 
 					<img 
-						src={states.pokeInfo.sprites.front_default}
+						src={states.pokeInfo.sprites.front_female}
 					 	alt={`imagem do ${poke} de frente`} 
 					/>
 					<img 
-						src={states.pokeInfo.sprites.back_default }
+						src={states.pokeInfo.sprites.front_female }
 						alt={`imagem do ${poke} de costas`} 
 					/>
 

@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 import { GlobalStateContext } from './GlobalStateContext'
 import React, {useState, useEffect, useContext} from 'react'
@@ -9,12 +10,11 @@ import { url } from "../constants/url";
 export default function GlobalState(props) {
 	
 	const [pokemons,setPokemons] = useState([]);
-	const [pokedex, setPokedex] = useState([]);
 	const [pokeInform,setPokeInform] = useState([]);
 	const [categories,setCategories] = useState([])
-	const [pokeInfo,setPokeInfo] = useState([])
+	const [pokeInfo,setPokeInfo] = useState({})
 	const [currentCategory,setCurrentCategory] = useState('all')
-
+	const {pokedex,setPokedex} = useState(GlobalStateContext);
 	
 	const getAllPokemons = async ( setPokemons,limit,começo  ) => {//pegar a lista de pokemons da API
 		try {
@@ -66,9 +66,10 @@ export default function GlobalState(props) {
 	}
 
 
-	const states = {pokemons,pokedex,pokeInform,categories,currentCategory}
-	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory}
 
+	const states = {pokemons,pokedex,pokeInform,categories,currentCategory,pokeInfo}
+//						\		  \          \       `````---___      ````---___ ````----______  
+	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory,setPokeInfo}
 
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
 

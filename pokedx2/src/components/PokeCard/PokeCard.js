@@ -12,10 +12,10 @@ const PokeCard = (props) => {
   const {states, setters} = useContext(GlobalStateContext)
 	
 
-	const funcaoclick = () => {
-		goToPage(navigate, `/details/${states.Poke.name}`)
+	// const funcaoclick = () => {
+	// 	goToPage(navigate, `/details/${states.Poke.name}`)
 	
-	}
+	// }
 
   // console.log(states.pokeInform);
 
@@ -54,7 +54,9 @@ const PokeCard = (props) => {
 		<Img src={props.details.sprites.front_default} alt="teste" />
 		<ContainerButton>
 			<Button onClick={props.Pokedex ? removeFromPokedex : addToPokedex }>{props.Pokedex ? "Remover da Pokédex" : "Adicionar a Pokédex"}</Button>
-			<Button onClick={() => funcaoclick() } >Ver detalhes</Button>
+			<Button
+      //  onClick={() => funcaoclick()}
+        >Ver detalhes</Button>
 		</ContainerButton>
 		
 		</Container>
