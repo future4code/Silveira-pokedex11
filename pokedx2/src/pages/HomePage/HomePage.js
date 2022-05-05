@@ -8,7 +8,7 @@ import Header from "../Header/Header";
 
 import { useGlobal } from "../../context/GlobalStateContext";
 import { HomeContainer, SelectCategory, ContainerGrid } from "./style";
-import { getPokemonsTypes, getAllPokemons } from '../../services/requests';
+// import { getPokemonsTypes, getAllPokemons } from '../../services/requests';
 // import { getAllPokemons } from "../../constants/Api";
 import { url } from "../../constants/url";
 
@@ -30,7 +30,8 @@ export default function HomePage() {
 	
 	useEffect(()=>{
 		// getAllPokemons(setPokemons,30,0)
-		requests.getAllPokemons(setters.setPokemons,30,0)
+		requests.getAllPokemons(setters.setPokemons,30,0 )
+		console.log(states.pokemons)
 	},[])
 
 	
@@ -47,11 +48,11 @@ export default function HomePage() {
 				// console.log('=====listnew =====');
 				if (listnew.length === 30) {
 					setters.setPokeInform(listnew)
-					if (states.pokeInform.length != 0 ) {
-						console.log(states.pokeInform.length);
+					// if (states.pokeInform.length != 0 ) {
+					// 	console.log(states.pokeInform.length);
 						console.log(states.pokeInform);
 						console.log('------');
-					} 
+					// } 
 					
 				}
 				// console.log(res.data.sprites.front_default);
@@ -60,7 +61,7 @@ export default function HomePage() {
 				console.log(err);
 			})
 		})
-	},[states.pokemons])
+	},[])
 
 
 	

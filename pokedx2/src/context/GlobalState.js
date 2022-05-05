@@ -15,14 +15,18 @@ export default function GlobalState(props) {
 	const [currentCategory,setCurrentCategory] = useState('all')
 	const {pokedex,setPokedex} = useState(GlobalStateContext);
 	
-	const getAllPokemons = async ( setPokemons,limit,comeco  ) => {//pegar a lista de pokemons da API
+	const getAllPokemons = async ( setPokemons,limit,começo  ) => {//pegar a lista de pokemons da API
 		try {
 
-			let diferenca = limit - comeco;
+			let diferenca = limit - começo;
 
-			if (limit>comeco && diferenca >= 20){
-				const response = await axios.get(`${url}?limit=${limit}&offset=${comeco}`)
+			if (limit > começo && diferenca >= 20){
+				const response = await axios.get(`${url}?limit=${limit}&offset=${começo}`)
 				setPokemons( response.data.results) 
+				console.log('===')
+				console.log('deu certo o getAll')
+				console.log(response.data.results);
+				console.log('===')
 			} else{
 				return 'erro';
 			}
