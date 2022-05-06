@@ -28,15 +28,33 @@ const DetailPage = () => {
 	console.log(states.pokeInfo.name);
 	console.log('kkkkkkk');
 
-	// sprites.front_default
-	// const imgFunc = type => {
-	// 	if (states.pokeInfo.sprites == undefined){
-	// 		return "http://3.bp.blogspot.com/_M82AcW40FFc/SwrH0Cci3cI/AAAAAAAAAEQ/guCMPwYawwo/s1600/mr+burns.jpg"
-	// 	} else {
-	// 		return states.pokeInfo.sprites.type
-	// 	}		
-	// }
+	const ability = states.pokeInfo.abilities.map((abilite) => {
+		return(
+			<p key={abilite.ability.name}>
+				{abilite.ability.name}
+			</p>
+		)
+		
+	})
+
+	const type = states.pokeInfo.types.map((tiple) => {
+		return(
+			<p key={tiple.type.name}>
+				{tiple.type.name}
+			</p>
+		)
+		
+	})	
 	
+	const principalAttack = states.pokeInfo.moves.map((mov) => {
+		return(
+			<p key={mov.move.name}>
+				{mov.move.name}
+			</p>
+			
+		)
+		
+	})
 
     return(
         <>
@@ -44,15 +62,16 @@ const DetailPage = () => {
 			<Header />
 {
 	states.pokeInfo.name &&
+
 			<Container>
 				<ContainerImg>
 
 					<img 
-						src={states.pokeInfo.sprites.front_female}
+						src={states.pokeInfo.sprites.front_default}
 					 	alt={`imagem do ${poke} de frente`} 
 					/>
 					<img 
-						src={states.pokeInfo.sprites.front_female }
+						src={states.pokeInfo.sprites.back_default }
 						alt={`imagem do ${poke} de costas`} 
 					/>
 
@@ -60,27 +79,18 @@ const DetailPage = () => {
 
 				<ContainerPowers>
 					<h3>Poderes</h3>
-					<p>hp: 00</p>
-					<p>attack: 00</p>
-					<p>defense: 00</p>
-					<p>special-attack: 00</p>
-					<p>special-defense: 00</p>
-					<p>speed: 00</p>
+					{ability}
 				</ContainerPowers>
 
 				<ContainerDetails>
 					<ContainerType>
-						<p>type1</p>
-						<p>type2</p>
+
+						{type}
 					</ContainerType>
 				
 					<ContainerAttack>
 						<h3>Principais ataques</h3>
-						<p>ataque 1</p>
-						<p>ataque 2</p>
-						<p>ataque 3</p>
-						<p>ataque 4</p>
-						<p>ataque 5</p>
+						{principalAttack}
 					</ContainerAttack>
 
 				</ContainerDetails>
