@@ -9,12 +9,12 @@ import React, {useState, useEffect, useContext} from 'react'
 
 export default function GlobalState(props) {
 	
-	const [pokemons,setPokemons] = useState([]);
-	const [pokeInform,setPokeInform] = useState([]);
 	const [categories,setCategories] = useState([])
-	const [pokeInfo,setPokeInfo] = useState({})
 	const [currentCategory,setCurrentCategory] = useState('all')
+	const [pokeInfo,setPokeInfo] = useState({})
+	const [pokeInform,setPokeInform] = useState([]);
 	const {pokedex,setPokedex} = useState(GlobalStateContext);
+	const [pokemons,setPokemons] = useState([]);
 	
 
 	const url = "https://pokeapi.co/api/v2/pokemon"

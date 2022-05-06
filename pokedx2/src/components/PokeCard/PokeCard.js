@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import {Container, Img, ContainerButton, Button, PokemonNameCard} from "./style"
 import {goToPage} from "../../routes/coordinator"
-// import { getPokemons, getDetailPokemon, getPokemonsTypes } from '../../services/requests';
+
 import { useNavigate } from 'react-router-dom'
 import { GlobalStateContext } from '../../context/GlobalStateContext';
 
@@ -11,26 +11,18 @@ const PokeCard = props => {
 	const navigate = useNavigate();
 	const {states, setters, requests} = useContext(GlobalStateContext)
 
-	
-	// console.log("");
-  	// console.log(`--- ${props.Poke.name} ---`);
-  	// console.log("");
-
-		// /details/bulbasaur
 	const funcaoclick = () => {
 		goToPage(navigate, `/details/${props.Poke.name}`)
 		
 	}
 
-	// console.log(states.pokeInform);
+	
+	console.log(states);
+
 
 	const addToPokedex = () => {
 		const IndexPokemon = states.pokeInform.findIndex((value) => {
-			// console.log("value.name");
-			// console.log(value.name);
-			// console.log("========");
-			return value.name === props.details.name
-		
+			return value.name === states.pokemons.name
 		})
 		
 		const novaListaPokemons = [...states.pokeInform]
@@ -43,8 +35,10 @@ const PokeCard = props => {
 	}
 
 	const removeFromPokedex = () => {
-		const IndexPokemon = states.pokedex.findIndex((value) => {
-		return value.name === props.details.name
+		const IndexPokemon = states.pokemons.findIndex((value) => {
+			console.log(" value");
+			console.log(value);
+			return value.name === props.details.name
 		})
 
 		const novaListaPokedex = [...states.pokedex]
@@ -65,9 +59,9 @@ const PokeCard = props => {
 			<ContainerButton>
 
 				<Button 
-					onClick={props.Pokedex ? removeFromPokedex : addToPokedex }
+					onClick={states.pokedex ? removeFromPokedex : addToPokedex }
 				>
-						{props.Pokedex ? "Remover da Pokédex" : "Adicionar a Pokédex"}
+						{states.pokedex ? "Remover da Pokédex" : "Adicionar a Pokédex"}
 				</Button>
 
 				<Button
