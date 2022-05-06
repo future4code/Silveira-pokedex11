@@ -10,7 +10,13 @@ const PokeCard = props => {
 
 	const navigate = useNavigate();
 	const {states, setters, requests} = useContext(GlobalStateContext)
-		
+
+	
+	console.log("");
+  console.log(`--- ${props.Poke.name} ---`);
+  console.log("");
+
+		// /details/bulbasaur
 	const funcaoclick = () => {
 		goToPage(navigate, `/details/${props.Poke.name}`)
 		
