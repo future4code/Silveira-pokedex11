@@ -1,22 +1,24 @@
 import React, {useContext, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { goToDetails, goToPage } from '../../routes/coordinator';
-import { HeaderContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, DetailContainerList, Buttons, CartPokedex} from "./style";
 import { GlobalStateContext } from "../../context/GlobalStateContext";
-import pokeballWhiteIcon from "../../imgs/pokeballWhite-icon.png";
 import { getPokemons } from "../../services/requests";
+import { useGlobal } from '../../context/GlobalStateContext';
+
+import pokeballWhiteIcon from "../../imgs/pokeballWhite-icon.png";
 import remover from "../../imgs/Remover-da-Pokedex.png";
 import detalhes from "../../imgs/Detalhes.png";
 import limpar from "../../imgs/Limpar-Pokedex.png";
 import pokedex from "../../imgs/Pokedex.png";
 import pokeballIcon from "../../imgs/pokeball-icon.png"
 import voltar from "../../imgs/Voltar.png"
+import { HeaderContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, DetailContainerList, Buttons, CartPokedex} from "./style";
 
 
 function PokedexPage() {
   const [image , setImage] = useState("")
 
-  const { states, setters } = useContext(GlobalStateContext)
+    const {states,setters,requests} = useGlobal()
   const { pokemonDetails, pokemons, pokemonsHome } = states
   const { setPokemons, setPokemonDetails, setPokemonPokedex , setPokemonsHome } = setters
   const [ imageContainer, setImageContainer ] = useState('')
