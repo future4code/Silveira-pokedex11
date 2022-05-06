@@ -22,42 +22,43 @@ const PokeCard = props => {
 		
 	}
 
-	console.log("============");
-	console.log(states.pokeInform);
-	console.log(props);
+	// console.log("============");
+	// console.log(states.pokeInform);
+	// console.log(props);
 
 
-	const addToPokedex = () => {
-		const IndexPokemon = states.pokeInform.findIndex((value) => {
-			// console.log("value.name");
-			console.log(value);
-			// console.log("========");
-			return value.name === props.details.name
+	// const addToPokedex = () => {
+
+	// 	const IndexPokemon = states.pokeInform.findIndex((value) => {
+	// 		// console.log("value.name");
+	// 		console.log(value);
+	// 		// console.log("========");
+	// 		return value.name === props.details.name
 		
-		})
+	// 	})
 		
-		const novaListaPokemons = [...states.pokeInform]
-		novaListaPokemons.splice(IndexPokemon, 1)
+	// 	const novaListaPokemons = [...states.pokeInform]
+	// 	novaListaPokemons.splice(IndexPokemon, 1)
 
-		const novaListaPokedex = [...states.pokedex, props.details]
+	// 	const novaListaPokedex = [...states.pokedex, props.details]
 
-		setters.setPokedex(novaListaPokedex)
-		setters.setPokeInform(novaListaPokemons)
-	}
+	// 	setters.setPokedex(novaListaPokedex)
+	// 	setters.setPokeInform(novaListaPokemons)
+	// }
 
-	const removeFromPokedex = () => {
-		const IndexPokemon = states.pokedex.findIndex((value) => {
-		return value.name === props.details.name
-		})
+	// const removeFromPokedex = () => {
+	// 	const IndexPokemon = states.pokedex.findIndex((value) => {
+	// 	return value.name === props.details.name
+	// 	})
 
-		const novaListaPokedex = [...states.pokedex]
-		novaListaPokedex.splice(IndexPokemon, 1)
+	// 	const novaListaPokedex = [...states.pokedex]
+	// 	novaListaPokedex.splice(IndexPokemon, 1)
 
-		const novaListPokemons = [...states.pokeInform, props.details]
+	// 	const novaListPokemons = [...states.pokeInform, props.details]
 
-		setters.setPokedex(novaListaPokedex)
-		setters.setPokeInform(novaListPokemons)
-	}
+	// 	setters.setPokedex(novaListaPokedex)
+	// 	setters.setPokeInform(novaListPokemons)
+	// }
 
 	return (
 		<Container>
@@ -67,11 +68,11 @@ const PokeCard = props => {
 
 			<ContainerButton>
 
-				<Button 
-					onClick={props.Pokedex ? removeFromPokedex : addToPokedex }
+				{/* <Button 
+					onClick={props.Pokedex ? removeFromPokedex() : addToPokedex() }
 				>
 						{props.Pokedex ? "Remover da Pokédex" : "Adicionar a Pokédex"}
-				</Button>
+				</Button> */}
 
 				<Button
 					onClick={() => funcaoclick()}
