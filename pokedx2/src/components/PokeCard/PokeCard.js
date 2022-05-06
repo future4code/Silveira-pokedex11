@@ -11,14 +11,14 @@ const PokeCard = props => {
 	const navigate = useNavigate();
   const {states, setters, requests} = useContext(GlobalStateContext)
 	
-  console.log(props);
+  console.log(props.Poke);
   console.log("---");
   console.log("---");
 
-	// const funcaoclick = () => {
-	// 	goToPage(navigate, `/details/${states.Poke.name}`)
+	const funcaoclick = () => {
+		goToPage(navigate, `/details/${props.Poke.name}`)
 	
-	// }
+	}
 
   // console.log(states.pokeInform);
 
@@ -53,12 +53,12 @@ const PokeCard = props => {
 
 	return (
 		<Container>
-			<PokemonNameCard>beranrdo</PokemonNameCard>
-		<Img src={props.details.sprites.front_default} alt="teste" />
+			<PokemonNameCard>{props.Poke.name}</PokemonNameCard>
+		<Img src={props.Poke.sprites.front_default} alt="teste" />
 		<ContainerButton>
 			<Button onClick={props.Pokedex ? removeFromPokedex : addToPokedex }>{props.Pokedex ? "Remover da Pokédex" : "Adicionar a Pokédex"}</Button>
 			<Button
-      //  onClick={() => funcaoclick()}
+      			onClick={() => funcaoclick()}
         >Ver detalhes</Button>
 		</ContainerButton>
 		

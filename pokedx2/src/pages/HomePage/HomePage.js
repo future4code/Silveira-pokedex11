@@ -57,32 +57,6 @@ export default function HomePage() {
 		})
 	},[states.pokemons])
 
-//	useEffect(() => {
-//		const listnew = [];
-//		states.pokemons && states.pokemons.forEach((poke)=>{
-//			//colocar o da api
-//			axios.get(`${url}/${poke.name}`)
-//			.then((res)=>{
-//				listnew.push(res.data)
-//				// console.log('=====listnew =====');
-//				// console.log(listnew);
-//				// console.log('=====listnew =====');
-//				if (listnew.length === 30) {
-//					setters.setPokeInform(listnew)
-//					// if (states.pokeInform.length != 0 ) {
-//					// 	console.log(states.pokeInform.length);
-//						console.log(states.pokeInform);
-//						console.log('------');
-//					// } 
-//					
-//				}
-//				// console.log(res.data.sprites.front_default);
-//			
-//			}).catch((err) =>{
-//				console.log(err);
-//			})
-//		})
-//	},[])
 
 
 	
