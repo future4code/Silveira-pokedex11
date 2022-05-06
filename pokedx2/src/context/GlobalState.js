@@ -1,4 +1,3 @@
-
 import axios from 'axios'
 import { GlobalStateContext } from './GlobalStateContext'
 import React, {useState, useEffect, useContext} from 'react'
