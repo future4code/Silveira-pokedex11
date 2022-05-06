@@ -23,10 +23,10 @@ const DetailPage = () => {
 		requests.getPokemonsDetail(poke, setters.setPokeInfo)
 	},[setters.setPokeInfo])
 	
-	console.log('pokemon info');
+	console.log();
+	console.log( ` ----- ${states.pokeInfo.name} ----- ` );
 	console.log(states.pokeInfo);
-	console.log(states.pokeInfo.name);
-	console.log('kkkkkkk');
+	console.log("");
 
 	const ability = states.pokeInfo.abilities.map((abilite) => {
 		return(

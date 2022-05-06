@@ -13,3 +13,7 @@
         navigate(-1);
     }
 
+
+    export const goToDetails = (navigate, name) => {
+        navigate.push(`/details/${name}`)
+    }
