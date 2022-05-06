@@ -22,12 +22,15 @@ const PokeCard = props => {
 		
 	}
 
-	// console.log(states.pokeInform);
+	console.log("============");
+	console.log(states.pokeInform);
+	console.log(props);
+
 
 	const addToPokedex = () => {
 		const IndexPokemon = states.pokeInform.findIndex((value) => {
 			// console.log("value.name");
-			// console.log(value.name);
+			console.log(value);
 			// console.log("========");
 			return value.name === props.details.name
 		
