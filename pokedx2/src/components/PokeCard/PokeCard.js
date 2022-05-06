@@ -26,9 +26,9 @@ const PokeCard = props => {
 
 	const addToPokedex = () => {
 		const IndexPokemon = states.pokeInform.findIndex((value) => {
-			console.log("value.name");
-			console.log(value.name);
-			console.log("========");
+			// console.log("value.name");
+			// console.log(value.name);
+			// console.log("========");
 			return value.name === props.details.name
 		
 		})

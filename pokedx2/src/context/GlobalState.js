@@ -2,10 +2,10 @@
 import axios from 'axios'
 import { GlobalStateContext } from './GlobalStateContext'
 import React, {useState, useEffect, useContext} from 'react'
-import PokeCard from "../components/PokeCard/PokeCard";
-import { getPokemonsTypes } from '../services/requests';
-import { getAllPokemons } from "../constants/Api";
-import { url } from "../constants/url";
+
+
+
+// import { url } from "../constants/url";
 
 export default function GlobalState(props) {
 	
@@ -16,6 +16,9 @@ export default function GlobalState(props) {
 	const [currentCategory,setCurrentCategory] = useState('all')
 	const {pokedex,setPokedex} = useState(GlobalStateContext);
 	
+
+	const url = "https://pokeapi.co/api/v2/pokemon"
+
 	const getAllPokemons = async ( setPokemons,limit,começo  ) => {//pegar a lista de pokemons da API
 		try {
 
@@ -45,7 +48,7 @@ export default function GlobalState(props) {
 			
 			const response = await axios.get(`${url}/${idDoPokemon}`)
 			// console.log('deu certo o getPokemonDetail');
-			console.log(response.data);
+			// console.log(response.data);
 			setPokeInfo(response.data)
 
 		} catch (err) {
@@ -68,7 +71,6 @@ export default function GlobalState(props) {
 
 
 	const states = {pokemons,pokedex,pokeInform,categories,currentCategory,pokeInfo}
-//						\		  \          \       `````---___      ````---___ ````----______  
 	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory,setPokeInfo}
 
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
