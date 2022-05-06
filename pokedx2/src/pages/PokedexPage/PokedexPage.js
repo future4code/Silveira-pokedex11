@@ -26,10 +26,10 @@ function PokedexPage() {
 
 	const renderPokemonsList = states.pokemons && states.pokemons.map((pokemon, props) => {
 		return (
-			<ListPokedexContainer key={props.pokemon.name}>
+			<ListPokedexContainer key={props.pokemon}>
 				<DetailContainerList onClick={() => onClickImage(pokemon)}>
-					<img src={props.Poke.sprites.versions["generation-viii"].icons.front_default} alt="pokemons"/>
-					<p>{props.pokemon.name}</p>
+					<img src={''} alt="pokemons"/>
+					<p>{props.pokemon}</p>
 					<img src={pokeballWhiteIcon}/>
 				</DetailContainerList>
 			</ListPokedexContainer>
