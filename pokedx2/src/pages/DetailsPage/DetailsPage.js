@@ -16,19 +16,19 @@ const DetailPage = () => {
     
 	const {states,setters,requests} = useGlobal()
 
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 	const { poke } = useParams();
 	
 	useEffect(() => {
 		requests.getPokemonsDetail(poke, setters.setPokeInfo)
 	},[setters.setPokeInfo])
 	
-	console.log();
-	console.log( ` ----- ${states.pokeInfo.name} ----- ` );
-	console.log(states.pokeInfo);
-	console.log("");
+	// console.log();
+	// console.log( ` ----- ${states.pokeInfo} ----- ` );
+	// console.log(states.pokeInfo);
+	// console.log("");
 
-	const ability = states.pokeInfo.abilities.map((abilite) => {
+	const ability = states.pokeInfo.name && states.pokeInfo.abilities.map((abilite) => {
 		return(
 			<p key={abilite.ability.name}>
 				{abilite.ability.name}
@@ -37,7 +37,7 @@ const DetailPage = () => {
 		
 	})
 
-	const type = states.pokeInfo.types.map((tiple) => {
+	const type = states.pokeInfo.name && states.pokeInfo.types.map((tiple) => {
 		return(
 			<p key={tiple.type.name}>
 				{tiple.type.name}
@@ -46,7 +46,8 @@ const DetailPage = () => {
 		
 	})	
 	
-	const principalAttack = states.pokeInfo.moves.map((mov) => {
+
+	const principalAttack = states.pokeInfo.name && states.pokeInfo.moves.map((mov) => {
 		return(
 			<p key={mov.move.name}>
 				{mov.move.name}

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
- width: 250px;
-    height: 300px;
+    
+    width: 250px;
+    height: 400px;
     background-color: #292929;
     border-radius: 30px;
     display: flex;
@@ -41,22 +42,32 @@ export const Container = styled.div`
 }
 `
 export const Img = styled.img`
-  width: 100%;
+  width: 200px;
   flex-grow: 1;
 `
 export const ContainerButton = styled.div`
+  /* background: blue; */
+  
+  width: 100%;
+  height: 100%;
+
   display: flex;
+  justify-content: center;
+
+
 `
 export const Button = styled.button`
-  height: 30px;
+  height: 100%;
   width: 100%;
-  margin-top: -1.5vw;
-  padding-bottom: 65px;
+   /* margin-top: -1.5vw; */
+  /* padding-bottom: 65px; */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  background-color: transparent;
+  font-size: 20px;
+  color:white;
+  background-color:transparent;
+  
   border: none;
   cursor: pointer;
 

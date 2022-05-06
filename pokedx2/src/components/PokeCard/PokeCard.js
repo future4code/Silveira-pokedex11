@@ -10,7 +10,13 @@ const PokeCard = props => {
 
 	const navigate = useNavigate();
 	const {states, setters, requests} = useContext(GlobalStateContext)
-		
+
+	
+	// console.log("");
+  	// console.log(`--- ${props.Poke.name} ---`);
+  	// console.log("");
+
+		// /details/bulbasaur
 	const funcaoclick = () => {
 		goToPage(navigate, `/details/${props.Poke.name}`)
 		
@@ -20,7 +26,10 @@ const PokeCard = props => {
 
 	const addToPokedex = () => {
 		const IndexPokemon = states.pokeInform.findIndex((value) => {
-		return value.name === props.details.name
+			console.log("value.name");
+			console.log(value.name);
+			console.log("========");
+			return value.name === props.details.name
 		
 		})
 		

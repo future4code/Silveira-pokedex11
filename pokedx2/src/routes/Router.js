@@ -15,7 +15,7 @@ export const Router = () => {
                         <PokedexPage />}
                     />
                 <Route 
-                    path="/details" 
+                    path="/details/:poke" 
                     element={
                         <DetailsPage />}
                 />

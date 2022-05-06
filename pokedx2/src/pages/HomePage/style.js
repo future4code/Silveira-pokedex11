@@ -30,7 +30,10 @@ export const SelectCategory = styled.select`
 `;
 
 export const ContainerGrid = styled.div`
+    
     display: grid;
+    height: 100%;
+    width: 100%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     row-gap: 30px;
