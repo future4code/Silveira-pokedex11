@@ -12,9 +12,9 @@ const PokeCard = props => {
 	const {states, setters, requests} = useContext(GlobalStateContext)
 
 	
-	console.log("");
-  console.log(`--- ${props.Poke.name} ---`);
-  console.log("");
+	// console.log("");
+  	// console.log(`--- ${props.Poke.name} ---`);
+  	// console.log("");
 
 		// /details/bulbasaur
 	const funcaoclick = () => {
@@ -26,7 +26,10 @@ const PokeCard = props => {
 
 	const addToPokedex = () => {
 		const IndexPokemon = states.pokeInform.findIndex((value) => {
-		return value.name === props.details.name
+			console.log("value.name");
+			console.log(value.name);
+			console.log("========");
+			return value.name === props.details.name
 		
 		})
 		

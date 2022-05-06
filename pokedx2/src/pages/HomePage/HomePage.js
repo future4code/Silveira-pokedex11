@@ -25,7 +25,7 @@ export default function HomePage() {
 	useEffect(()=>{
 		// getAllPokemons(setPokemons,30,0)
 		requests.getAllPokemons(setters.setPokemons,30,0 )
-		console.log(states.pokemons)
+		// console.log(states.pokemons)
 	},[])
 
 	
@@ -35,6 +35,7 @@ export default function HomePage() {
 		states.pokemons && states.pokemons.forEach((poke)=>{
 			//colocar o da api
 			axios.get(`${url}/${poke.name}`)
+			
 			.then((res)=>{
 				listnew.push(res.data)
 				// console.log('=====listnew =====');
@@ -62,7 +63,9 @@ export default function HomePage() {
 	
 	const list = states.pokeInform && states.pokeInform.map((poke) => {
 		return(
-			<PokeCard key={poke.id}
+			<PokeCard 
+				key={poke.id}
+
 				Poke={poke}
 				
 			/>

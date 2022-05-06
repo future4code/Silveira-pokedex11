@@ -19,13 +19,12 @@ function PokedexPage() {
 	const [image , setImage] = useState("")
 
 	const {states,setters,requests} = useGlobal()
-	const { pokemonDetails, pokemons, pokemonsHome } = states
-	const { setPokemons, setPokemonDetails, setPokemonPokedex , setPokemonsHome } = setters
+	
 	const [ imageContainer, setImageContainer ] = useState('')
 	const navigate = useNavigate()
 
 
-	const renderPokemonsList = pokemons && pokemons.map((pokemon, props) => {
+	const renderPokemonsList = states.pokemons && states.pokemons.map((pokemon, props) => {
 		return (
 			<ListPokedexContainer key={props.pokemon.name}>
 				<DetailContainerList onClick={() => onClickImage(pokemon)}>
@@ -38,25 +37,25 @@ function PokedexPage() {
 	})
 
 	const removeFromPokedex = (pokemon) => {
-		const newPokemonsPokedex = [...pokemons]
-		const index = pokemons.findIndex(
+		const newPokemonsPokedex = [... states.pokemons]
+		const index = states.pokemons.findIndex(
 			(item) => item.name === pokemon.name
 		);
 
 		newPokemonsPokedex.splice(index, 1)
-		setPokemonPokedex(newPokemonsPokedex)
+		setters.setPokemonPokedex(newPokemonsPokedex)
 
-		const newPokemons = [...pokemonsHome, pokemon];
+		const newPokemons = [... states.pokemonsHome, pokemon];
 		const orderedPokemons = newPokemons.sort((a, b) => {
 			return a.id - b.id;
 		})
-		setPokemonsHome(orderedPokemons)
+		setters.setPokemonsHome(orderedPokemons)
 		setImageContainer('')
 	}
 
 	const CleanPokedex = () => {
-		setPokemonPokedex([])
-		requests.getPokemons(setPokemons)
+		setters.setPokemonPokedex([])
+		requests.getPokemons(setters.setPokemons)
 		setImageContainer('')
 	}
 	
@@ -82,7 +81,7 @@ function PokedexPage() {
 					<a onClick={() => goToPage(navigate, "/")}><img src={voltar} alt='Voltar'/></a>
 					<NumContainer>
 						<img src={pokeballIcon} />
-						<p>{pokemons.length}</p>
+						<p>{states.pokemons.length}</p>
 					</NumContainer>
 				</HeaderContainer>
 				<MainContainer>
