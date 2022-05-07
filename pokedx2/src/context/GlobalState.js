@@ -13,8 +13,8 @@ export default function GlobalState(props) {
 	const [categories,setCategories] = useState([])
 	const [pokeInfo,setPokeInfo] = useState({})
 	const [currentCategory,setCurrentCategory] = useState('all')
-	const {pokedex,setPokedex} = useState(GlobalStateContext);
-	
+	const [pokedex,setPokedex] = useState();
+
 
 	const url = "https://pokeapi.co/api/v2/pokemon"
 
@@ -69,7 +69,8 @@ export default function GlobalState(props) {
 
 
 
-	const states = {pokemons,pokedex,pokeInform,categories,currentCategory,pokeInfo}
+	const states = {    pokemons,   pokedex,   pokeInform,   categories,   currentCategory,   pokeInfo}
+
 	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory,setPokeInfo}
 
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}

@@ -17,6 +17,8 @@ import pokeballIcon from "../../imgs/pokeball-icon.png"
 import voltar from "../../imgs/Voltar.png"
 
 
+	// o estato onde estaguardado o pokemons adicionados a pokedex é o pokemonPokedex
+
 function PokedexPage() {
 	
 	const [image , setImage] = useState("")
@@ -25,6 +27,7 @@ function PokedexPage() {
 	const navigate = useNavigate()
 	const {states,setters,requests} = useGlobal()
 
+	console.log(states);
 
 	const renderPokemonsList = states.pokemons && states.pokemons.map((pokemon, props) => {
 		return (
@@ -78,21 +81,29 @@ function PokedexPage() {
 		<GlobalStateContext.Provider value={{image , setImage}}>
 			<PokedexPageContainer>
 				<HeaderContainer>
-					<img src={pokedex} alt='Pokédex'/>
-					<a onClick={CleanPokedex}><img src={limpar} alt='Limpar Tela'/></a>
 					<a onClick={() => goToPage(navigate, "/")}><img src={voltar} alt='Voltar'/></a>
+
+					<img src={ pokedex } alt='Pokédex'/>
+
+					<a onClick={ CleanPokedex } ><img src={limpar} alt='Limpar Tela'/></a>
+
 					<NumContainer>
 						<img src={pokeballIcon} />
+
 						<p>{states.pokemons.length}</p>
 					</NumContainer>
 				</HeaderContainer>
+
 				<MainContainer>
+
 					<PokemonContainer>
 						{imageContainer}
 					</PokemonContainer>
+
 					<ListContainer>
 						{renderPokemonsList}
 					</ListContainer>
+
 				</MainContainer>
 			</PokedexPageContainer>
 		</GlobalStateContext.Provider>
