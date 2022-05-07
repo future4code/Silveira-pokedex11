@@ -66,7 +66,49 @@ export default function GlobalState(props) {
 			})
 	}
 
+	
+	const addToPokedex = poke => {
+		const IndexPokemon = states.pokeInform.findIndex((value) => {
+			console.log("IndexPokemon");
+			return value.name === poke.name
+		
+		})
+		const novaListaPokemons = [...states.pokeInform]
 
+		novaListaPokemons.splice(IndexPokemon, 1)
+
+		if (states.pokedex === undefined ){
+
+			const novaListaPokedex = [ poke ]
+			setters.setPokedex(novaListaPokedex)
+			setters.setPokeInform(novaListaPokemons)
+
+
+		} else {
+
+			const novaListaPokedex = [...states.pokedex, poke]
+			setters.setPokedex(novaListaPokedex)
+			setters.setPokeInform(novaListaPokemons)
+
+		}
+		
+	}
+
+	const removeFromPokedex = poke => {
+		const IndexPokemon = states.pokedex.findIndex((value) => {
+		
+			return value.name === poke.name
+		
+		})
+
+		const novaListaPokedex = [...states.pokedex]
+		novaListaPokedex.splice(IndexPokemon, 1)
+
+		const novaListPokemons = [...states.pokeInform,poke]
+
+		setters.setPokedex(novaListaPokedex)
+		setters.setPokeInform(novaListPokemons)
+	}
 
 	const states = {    pokemons,   pokedex,   pokeInform,   categories,   currentCategory,   pokeInfo}
 
@@ -74,9 +116,10 @@ export default function GlobalState(props) {
 
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
 
+	const func = {addToPokedex, removeFromPokedex}
 
 	return (
-			<GlobalStateContext.Provider value={{states,setters,requests}}>
+			<GlobalStateContext.Provider value={{states,setters,requests,func}}>
 				{props.children}
 			</GlobalStateContext.Provider>
 		)

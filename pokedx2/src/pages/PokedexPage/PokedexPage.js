@@ -26,7 +26,7 @@ function PokedexPage() {
 	const navigate = useNavigate()
 	const {states,setters,requests} = useGlobal()
 
-	console.log(states);
+	console.log(states.pokedex);
 
 	const renderPokemonsList = states.pokemons && states.pokemons.map((pokemon, props) => {
 		return (

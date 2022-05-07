@@ -58,11 +58,8 @@ export default function HomePage() {
 		return(
 			
 			<PokeCard 
-				// details={}
-				key={poke.id}
-
 				Poke={poke}
-				
+
 			/>
 		)
 	})
