@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router-dom'
 import {goToPage} from "../../../routes/coordinator"
 
 
-const Header = () => {
+const Header = props => {
 
+  console.log(props.poke);
+  
   const navigate = useNavigate();
   return (
     <Container>

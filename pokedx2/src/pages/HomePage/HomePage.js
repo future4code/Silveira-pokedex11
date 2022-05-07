@@ -22,7 +22,7 @@ export default function HomePage() {
 
 	
 	useEffect(()=>{
-
+		document.title = 'PokeDex'
 		requests.getAllPokemons(setters.setPokemons,30,0 )
 
 	},[])
@@ -78,12 +78,13 @@ export default function HomePage() {
     <HomeContainer>
 			<Header />
 			<SelectCategory  onChange={handleCategories}>
-                    <option value='all' defaultValue>Selecione um tipo de Pókemon</option>
+                <option value='all' defaultValue>Selecione um tipo de Pókemon</option>
                     {renderCategories}
-                </SelectCategory>
-				<ContainerGrid>
-					{list}
-				</ContainerGrid>
+            </SelectCategory>
+
+			<ContainerGrid>	
+				{list}
+			</ContainerGrid>
 		</HomeContainer>
 	)
 }

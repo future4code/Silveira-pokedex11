@@ -58,7 +58,9 @@ const DetailPage = () => {
     return(
         <>
 
-			<Header />
+			<Header
+				poke={poke}
+			/>
 {
 	states.pokeInfo.name &&
 
