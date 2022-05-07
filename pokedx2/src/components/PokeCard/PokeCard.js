@@ -3,14 +3,15 @@ import {Container, Img, ContainerButton, Button, PokemonNameCard} from "./style"
 import {goToPage} from "../../routes/coordinator"
 // import { getPokemons, getDetailPokemon, getPokemonsTypes } from '../../services/requests';
 import { useNavigate } from 'react-router-dom'
-import { GlobalStateContext } from '../../context/GlobalStateContext';
+import { useGlobal } from '../../context/GlobalStateContext';
 
 
 const PokeCard = props => {
 
 	const navigate = useNavigate();
-	const {states, setters, requests} = useContext(GlobalStateContext)
+	const {states,setters,requests} = useGlobal()
 
+	// console.log(states);
 	
 	// console.log("");
   	// console.log(`--- ${props.Poke.name} ---`);
@@ -22,34 +23,56 @@ const PokeCard = props => {
 		
 	}
 
-	// console.log("============");
-	// console.log(states.pokeInform);
-	// console.log(props);
+	console.log(states.pokedex);
 
-
-	// const addToPokedex = () => {
-
-	// 	const IndexPokemon = states.pokeInform.findIndex((value) => {
-	// 		// console.log("value.name");
-	// 		console.log(value);
-	// 		// console.log("========");
-	// 		return value.name === props.details.name
+	const addToPokedex = (poke) => {
+		const IndexPokemon = states.pokeInform.findIndex((value) => {
+			// console.log("value.name");
+			// console.log("========");
+			// console.log(value.name);
+			// console.log("========");
+			return value.name === poke.name
 		
-	// 	})
+		})
+		const novaListaPokemons = [...states.pokeInform]
 		
-	// 	const novaListaPokemons = [...states.pokeInform]
-	// 	novaListaPokemons.splice(IndexPokemon, 1)
+		// console.log(states.pokemons);
+		// console.log(states.pokeInform);
 
-	// 	const novaListaPokedex = [...states.pokedex, props.details]
+		// console.log(novaListaPokemons);
+		
+		novaListaPokemons.splice(IndexPokemon, 1)
+		
+		// console.log(novaListaPokemons);
 
-	// 	setters.setPokedex(novaListaPokedex)
-	// 	setters.setPokeInform(novaListaPokemons)
-	// }
+		if (states.pokedex === undefined ){
+			const novaListaPokedex = [ props.Poke ]
 
-	// const removeFromPokedex = () => {
-	// 	const IndexPokemon = states.pokedex.findIndex((value) => {
-	// 	return value.name === props.details.name
-	// 	})
+			// console.log("========");
+			// console.log(novaListaPokedex);
+			// console.log("========");
+
+			setters.setPokedex(novaListaPokedex)
+			setters.setPokeInform(novaListaPokemons)
+
+		} else {
+			
+			const novaListaPokedex = [...states.pokedex, props.Poke]
+
+			setters.setPokedex(novaListaPokedex)
+			setters.setPokeInform(novaListaPokemons)
+
+		}
+		
+	}
+
+	const removeFromPokedex = () => {
+		const IndexPokemon = states.pokedex.findIndex((value) => {
+		
+			return value.name === props.Poke.name
+		
+		})
+
 
 	// 	const novaListaPokedex = [...states.pokedex]
 	// 	novaListaPokedex.splice(IndexPokemon, 1)
@@ -68,11 +91,13 @@ const PokeCard = props => {
 
 			<ContainerButton>
 
-				{/* <Button 
-					onClick={props.Pokedex ? removeFromPokedex() : addToPokedex() }
+
+				<Button 
+					onClick={ addToPokedex }
 				>
-						{props.Pokedex ? "Remover da Pokédex" : "Adicionar a Pokédex"}
-				</Button> */}
+						Adicionar a Pokédex
+				</Button>
+
 
 				<Button
 					onClick={() => funcaoclick()}
