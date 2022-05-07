@@ -16,7 +16,6 @@ import pokedex from "../../imgs/Pokedex.png";
 import pokeballIcon from "../../imgs/pokeball-icon.png"
 import voltar from "../../imgs/Voltar.png"
 
-
 	// o estato onde estaguardado o pokemons adicionados a pokedex é o pokemonPokedex
 
 function PokedexPage() {
@@ -42,7 +41,7 @@ function PokedexPage() {
 	})
 
 	const removeFromPokedex = (pokemon) => {
-		const newPokemonsPokedex = [... states.pokemons]
+		const newPokemonsPokedex = [...states.pokemons]
 		const index = states.pokemons.findIndex(
 			(item) => item.name === pokemon.name
 		);
