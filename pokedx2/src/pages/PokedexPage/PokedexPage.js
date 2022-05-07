@@ -2,8 +2,11 @@ import React, {useContext, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { goToDetails, goToPage } from '../../routes/coordinator';
 import { GlobalStateContext } from "../../context/GlobalStateContext";
-// import { getPokemons } from "../../services/requests";
 import { useGlobal } from '../../context/GlobalStateContext';
+
+
+import { HeaderContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, DetailContainerList, Buttons, CartPokedex} from "./style";
+
 
 import pokeballWhiteIcon from "../../imgs/pokeballWhite-icon.png";
 import remover from "../../imgs/Remover-da-Pokedex.png";
@@ -12,16 +15,18 @@ import limpar from "../../imgs/Limpar-Pokedex.png";
 import pokedex from "../../imgs/Pokedex.png";
 import pokeballIcon from "../../imgs/pokeball-icon.png"
 import voltar from "../../imgs/Voltar.png"
-import { HeaderContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, DetailContainerList, Buttons, CartPokedex} from "./style";
+
+	// o estato onde estaguardado o pokemons adicionados a pokedex é o pokemonPokedex
 
 function PokedexPage() {
-	const [image , setImage] = useState("")
-
-	const {states,setters,requests} = useGlobal()
 	
+	const [image , setImage] = useState("")
 	const [ imageContainer, setImageContainer ] = useState('')
-	const navigate = useNavigate()
 
+	const navigate = useNavigate()
+	const {states,setters,requests} = useGlobal()
+
+	console.log(states);
 
 	const renderPokemonsList = states.pokemons && states.pokemons.map((pokemon, props) => {
 		return (
@@ -75,21 +80,29 @@ function PokedexPage() {
 		<GlobalStateContext.Provider value={{image , setImage}}>
 			<PokedexPageContainer>
 				<HeaderContainer>
-					<img src={pokedex} alt='Pokédex'/>
-					<a onClick={CleanPokedex}><img src={limpar} alt='Limpar Tela'/></a>
 					<a onClick={() => goToPage(navigate, "/")}><img src={voltar} alt='Voltar'/></a>
+
+					<img src={ pokedex } alt='Pokédex'/>
+
+					<a onClick={ CleanPokedex } ><img src={limpar} alt='Limpar Tela'/></a>
+
 					<NumContainer>
 						<img src={pokeballIcon} />
+
 						<p>{states.pokemons.length}</p>
 					</NumContainer>
 				</HeaderContainer>
+
 				<MainContainer>
+
 					<PokemonContainer>
 						{imageContainer}
 					</PokemonContainer>
+
 					<ListContainer>
 						{renderPokemonsList}
 					</ListContainer>
+
 				</MainContainer>
 			</PokedexPageContainer>
 		</GlobalStateContext.Provider>
