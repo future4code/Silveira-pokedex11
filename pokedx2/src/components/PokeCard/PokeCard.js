@@ -73,15 +73,14 @@ const PokeCard = props => {
 		
 		})
 
+		const novaListaPokedex = [...states.pokedex]
+		novaListaPokedex.splice(IndexPokemon, 1)
 
-	// 	const novaListaPokedex = [...states.pokedex]
-	// 	novaListaPokedex.splice(IndexPokemon, 1)
+		const novaListPokemons = [...states.pokeInform, props.details]
 
-	// 	const novaListPokemons = [...states.pokeInform, props.details]
-
-	// 	setters.setPokedex(novaListaPokedex)
-	// 	setters.setPokeInform(novaListPokemons)
-	// }
+		setters.setPokedex(novaListaPokedex)
+		setters.setPokeInform(novaListPokemons)
+	}
 
 	return (
 		<Container>
@@ -91,13 +90,11 @@ const PokeCard = props => {
 
 			<ContainerButton>
 
-
 				<Button 
 					onClick={ addToPokedex }
 				>
 						Adicionar a Pokédex
 				</Button>
-
 
 				<Button
 					onClick={() => funcaoclick()}
