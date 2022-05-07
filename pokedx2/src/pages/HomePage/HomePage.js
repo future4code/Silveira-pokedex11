@@ -54,7 +54,9 @@ export default function HomePage() {
 
 	
 	const list = states.pokeInform && states.pokeInform.map((poke) => {
+		
 		return(
+			
 			<PokeCard 
 				// details={}
 				key={poke.id}
