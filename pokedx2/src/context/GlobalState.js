@@ -69,7 +69,7 @@ export default function GlobalState(props) {
 	
 	const addToPokedex = poke => {
 		const IndexPokemon = states.pokeInform.findIndex((value) => {
-			console.log("IndexPokemon");
+			// console.log("IndexPokemon");
 			return value.name === poke.name
 		
 		})
@@ -96,9 +96,7 @@ export default function GlobalState(props) {
 
 	const removeFromPokedex = poke => {
 		const IndexPokemon = states.pokedex.findIndex((value) => {
-		
 			return value.name === poke.name
-		
 		})
 
 		const novaListaPokedex = [...states.pokedex]
@@ -110,13 +108,19 @@ export default function GlobalState(props) {
 		setters.setPokeInform(novaListPokemons)
 	}
 
+	const CleanPokedex = () => {
+		setters.setPokedex([])
+		requests.getPokemons(setters.setPokemons)
+		
+	}
+
 	const states = {    pokemons,   pokedex,   pokeInform,   categories,   currentCategory,   pokeInfo}
 
 	const setters = {setPokemons,setPokedex,setPokeInform,setCategories,setCurrentCategory,setPokeInfo}
 
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
 
-	const func = {addToPokedex, removeFromPokedex}
+	const func = {addToPokedex, removeFromPokedex, CleanPokedex}
 
 	return (
 			<GlobalStateContext.Provider value={{states,setters,requests,func}}>

@@ -39,14 +39,15 @@ export const NumContainer = styled.div `
 export const MainContainer = styled.div `
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 80%;
 `
 
 export const PokemonContainer = styled.div `
+    height: 100%;
     display: flex;
     flex-direction: column;
-    margin-left: 13%;
+    ;
     align-self: flex-start;
     margin-top: 7%;
     
@@ -61,10 +62,11 @@ export const PokemonContainer = styled.div `
 `
 
 export const ListContainer = styled.div `
+
     display: flex;
     flex-direction: column;
-    width: 20%;
-    margin-right: 10px;
+    width: 500px;
+    /* margin-right: 100px; */
     height: 100%;
     padding-top: 10px;
     align-self: flex-start;
@@ -72,10 +74,11 @@ export const ListContainer = styled.div `
 `
 
 export const ListPokedexContainer = styled.div `
+/* background-color: blue; */
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 100%;
+    width: 500px;
     background-color: aliceblue;
     border-radius: 32px;
     padding: 0px 5px;
@@ -92,6 +95,7 @@ export const ListPokedexContainer = styled.div `
 `
 
 export const DetailContainerList = styled.div `
+background-color: blue;
     cursor: pointer;
     display: flex;
     align-items: center;

@@ -16,16 +16,16 @@ const PokeCard = props => {
 		
 	}
 
-	console.log(states.pokedex);
+	// console.log(states.pokedex);
 	// console.log(props.Poke);
 
 	const escolha = () => {
 		const checkIndex = states.pokedex && states.pokedex.findIndex((pok) => {
-			console.log('====');
-			console.log(pok);
+			// console.log('====');
+			// console.log(pok);
 			// console.log(`pok.id ${pok}`);
-			console.log(props.Poke);
-			console.log('====');
+			// console.log(props.Poke);
+			// console.log('====');
 			// console.log(pok);
 			// console.log("pok");
 			if(pok.id === props.Poke.id){
@@ -35,17 +35,17 @@ const PokeCard = props => {
 			}
 			
 		})
-		console.log("passou ");
+		// console.log("passou ");
 		
 		if (states.pokedex === undefined ) {
 			return func.addToPokedex(props.Poke)
 		}else {
-			console.log('else');
+			// console.log('else');
 			if (checkIndex !== -1 ) {
-				console.log('else if');
+				// console.log('else if');
 				return func.addToPokedex(props.Poke)
 			} else {
-				console.log('else else');
+				// console.log('else else');
 					
 				return func.removeFromPokedex(props.Poke)
 			}
