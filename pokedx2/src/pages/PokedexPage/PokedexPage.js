@@ -14,7 +14,6 @@ import pokeballIcon from "../../imgs/pokeball-icon.png"
 import voltar from "../../imgs/Voltar.png"
 import { HeaderContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, DetailContainerList, Buttons, CartPokedex} from "./style";
 
-
 function PokedexPage() {
 	const [image , setImage] = useState("")
 
@@ -37,7 +36,7 @@ function PokedexPage() {
 	})
 
 	const removeFromPokedex = (pokemon) => {
-		const newPokemonsPokedex = [... states.pokemons]
+		const newPokemonsPokedex = [...states.pokemons]
 		const index = states.pokemons.findIndex(
 			(item) => item.name === pokemon.name
 		);
