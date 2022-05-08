@@ -1,12 +1,8 @@
 import React, { useEffect } from 'react';
 import Header from "./Header/Header"
-// colocar os imports de libs
-import {useNavigate, useParams} from 'react-router-dom';
-// import axios from 'axios';
 
-// colocar as importacoes de todos os arquivos de codigos do projeto
-// import { goBack } from '../../routes/coordinator';
-// import {MainContainer, Button, InfoContainer, Img, Stats, Type, Moves } from '../../styles/styles';
+import {useNavigate, useParams} from 'react-router-dom';
+
 import {MainContainer,Container, ContainerImg, ContainerPowers, ContainerDetails, ContainerType, ContainerAttack} from "./styled"
 import { useGlobal } from '../../context/GlobalStateContext';
 
@@ -46,6 +42,7 @@ const DetailPage = () => {
         <MainContainer>
 			<Header
 				poke={poke}
+				Pokemon={states.pokeInfo}
 			/>
 {
 	states.pokeInfo.name &&

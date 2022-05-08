@@ -23,7 +23,7 @@ function PokedexPage() {
 	const navigate = useNavigate()
 
 	const renderPokemonsList = states.pokedex && states.pokedex.sort((a, b) => a.id - b.id).map((pokemon, index) => {
-		console.log(pokemon);
+
 		return (
 			<ListPokedexContainer key={index}>
 				<h3>{pokemon.name.toUpperCase()}</h3>
