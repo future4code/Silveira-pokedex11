@@ -1,16 +1,16 @@
 # Silveira-pokedex1
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+-Bernardo braga
+-Andresa Alves
 
-Link do Surge: www.link.com.br
+Link do Surge: infamous-increase.surge.sh
 
 O que funciona:
-- Item 1
-- Item 2
+-pokedex
+-pagina de detalhe, 
+-home page
 
 O que não funciona: 
-- Item 3
+- pokedex quando nao tem pokemon
 - Item 4
