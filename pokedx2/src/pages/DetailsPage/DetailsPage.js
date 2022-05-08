@@ -7,7 +7,7 @@ import {useNavigate, useParams} from 'react-router-dom';
 // colocar as importacoes de todos os arquivos de codigos do projeto
 // import { goBack } from '../../routes/coordinator';
 // import {MainContainer, Button, InfoContainer, Img, Stats, Type, Moves } from '../../styles/styles';
-import {Container, ContainerImg, ContainerPowers, ContainerDetails, ContainerType, ContainerAttack} from "./styled"
+import {MainContainer,Container, ContainerImg, ContainerPowers, ContainerDetails, ContainerType, ContainerAttack} from "./styled"
 import { useGlobal } from '../../context/GlobalStateContext';
 
 const DetailPage = () => {
@@ -56,7 +56,7 @@ const DetailPage = () => {
 	})
 
     return(
-        <>
+        <MainContainer>
 
 			<Header
 				poke={poke}
@@ -78,26 +78,28 @@ const DetailPage = () => {
 
 				</ContainerImg>
 
-				<ContainerPowers>
-					<h3>Poderes</h3>
-					{ability}
-				</ContainerPowers>
+				
 
 				<ContainerDetails>
+					<ContainerPowers>
+						<h3>Poderes</h3>
+						{ability}
+					</ContainerPowers>
 					<ContainerType>
-
+						<h3>Tipo: </h3>
 						{type}
 					</ContainerType>
-				
+				</ContainerDetails>
+
 					<ContainerAttack>
 						<h3>Principais ataques</h3>
 						{principalAttack}
 					</ContainerAttack>
 
-				</ContainerDetails>
+			
 			</Container>
 }
-        </>
+        </MainContainer>
     )
     
 }

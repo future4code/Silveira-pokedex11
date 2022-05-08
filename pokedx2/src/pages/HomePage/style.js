@@ -37,5 +37,5 @@ export const ContainerGrid = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     row-gap: 30px;
-    column-gap: 30px;
+    column-gap: 0px;
 `;
