@@ -1,30 +1,19 @@
 import React, { useEffect } from 'react';
 import Header from "./Header/Header"
-// colocar os imports de libs
-import {useNavigate, useParams} from 'react-router-dom';
-// import axios from 'axios';
 
-// colocar as importacoes de todos os arquivos de codigos do projeto
-// import { goBack } from '../../routes/coordinator';
-// import {MainContainer, Button, InfoContainer, Img, Stats, Type, Moves } from '../../styles/styles';
-import {Container, ContainerImg, ContainerPowers, ContainerDetails, ContainerType, ContainerAttack} from "./styled"
+import {useNavigate, useParams} from 'react-router-dom';
+
+import {MainContainer,Container, ContainerImg, ContainerPowers, ContainerDetails, ContainerType, ContainerAttack} from "./styled"
 import { useGlobal } from '../../context/GlobalStateContext';
 
 const DetailPage = () => {
     
 	const {states,setters,requests} = useGlobal()
-
-	// const navigate = useNavigate();
 	const { poke } = useParams();
 	
 	useEffect(() => {
 		requests.getPokemonsDetail(poke, setters.setPokeInfo)
 	},[setters.setPokeInfo])
-	
-	// console.log();
-	// console.log( ` ----- ${states.pokeInfo} ----- ` );
-	// console.log(states.pokeInfo);
-	// console.log("");
 
 	const ability = states.pokeInfo.name && states.pokeInfo.abilities.map((abilite) => {
 		return(
@@ -32,7 +21,6 @@ const DetailPage = () => {
 				{abilite.ability.name}
 			</p>
 		)
-		
 	})
 
 	const type = states.pokeInfo.name && states.pokeInfo.types.map((tiple) => {
@@ -41,32 +29,25 @@ const DetailPage = () => {
 				{tiple.type.name}
 			</p>
 		)
-		
 	})	
-	
-
 	const principalAttack = states.pokeInfo.name && states.pokeInfo.moves.map((mov) => {
 		return(
 			<p key={mov.move.name}>
 				{mov.move.name}
 			</p>
-			
 		)
-		
 	})
 
     return(
-        <>
-
+        <MainContainer>
 			<Header
 				poke={poke}
+				Pokemon={states.pokeInfo}
 			/>
 {
 	states.pokeInfo.name &&
-
 			<Container>
 				<ContainerImg>
-
 					<img 
 						src={states.pokeInfo.sprites.front_default}
 					 	alt={`imagem do ${poke} de frente`} 
@@ -75,29 +56,24 @@ const DetailPage = () => {
 						src={states.pokeInfo.sprites.back_default }
 						alt={`imagem do ${poke} de costas`} 
 					/>
-
 				</ContainerImg>
-
-				<ContainerPowers>
-					<h3>Poderes</h3>
-					{ability}
-				</ContainerPowers>
-
 				<ContainerDetails>
+					<ContainerPowers>
+						<h3>Poderes</h3>
+						{ability}
+					</ContainerPowers>
 					<ContainerType>
-
+						<h3>Tipo: </h3>
 						{type}
 					</ContainerType>
-				
+				</ContainerDetails>
 					<ContainerAttack>
 						<h3>Principais ataques</h3>
 						{principalAttack}
 					</ContainerAttack>
-
-				</ContainerDetails>
 			</Container>
 }
-        </>
+        </MainContainer>
     )
     
 }

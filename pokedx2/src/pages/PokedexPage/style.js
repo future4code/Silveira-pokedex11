@@ -62,11 +62,9 @@ export const PokemonContainer = styled.div `
 `
 
 export const ListContainer = styled.div `
-
     display: flex;
     flex-direction: column;
     width: 500px;
-    /* margin-right: 100px; */
     height: 100%;
     padding-top: 10px;
     align-self: flex-start;
@@ -74,7 +72,6 @@ export const ListContainer = styled.div `
 `
 
 export const ListPokedexContainer = styled.div `
-/* background-color: blue; */
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -102,11 +99,9 @@ background-color: blue;
     justify-content: space-evenly;
     width: 100%;
     justify-content: space-between;
-
     img:nth-of-type(1) {
         margin-bottom: 10px;
     }
-
     img:nth-of-type(2) {
         width: 40px;
     }
@@ -114,7 +109,6 @@ background-color: blue;
 
 export const CartPokedex = styled.div `
     display: flex;
-
     img:hover {
         transition: all 800ms;
         transform: scale(1.05);
@@ -126,13 +120,11 @@ export const Buttons = styled.a `
     align-items: center;
     justify-content: space-evenly;
     cursor: pointer;
-
     a:nth-child(1):hover {
         cursor: pointer;
         transition: all 800ms;
         transform: scale(1.1);
     }
-
     a:nth-child(2):hover {
         cursor: pointer;
         transition: all 800ms;

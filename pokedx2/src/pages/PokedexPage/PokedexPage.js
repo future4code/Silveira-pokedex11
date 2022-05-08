@@ -1,10 +1,10 @@
 
 
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { goToDetails, goToPage,goToHomePage } from '../../routes/coordinator';
 import { GlobalStateContext } from "../../context/GlobalStateContext";
-// import { getPokemons } from "../../services/requests";
+
 import { useGlobal } from '../../context/GlobalStateContext';
 
 import pokeballWhiteIcon from "../../imgs/pokeballWhite-icon.png";
@@ -14,21 +14,16 @@ import limpar from "../../imgs/Limpar-Pokedex.png";
 import pokedex from "../../imgs/Pokedex.png";
 import pokeballIcon from "../../imgs/pokeball-icon.png"
 import voltar from "../../imgs/Voltar.png"
-import { HeaderContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, DetailContainerList, Buttons, CartPokedex} from "./style";
+import { HeaderContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, Buttons, CartPokedex} from "./style";
 
 function PokedexPage() {
 	const [image , setImage] = useState("")
-
-	const {states,setters,requests,func} = useGlobal()
-	
+	const {states,setters,func} = useGlobal()
 	const [ imageContainer, setImageContainer ] = useState('')
-	
 	const navigate = useNavigate()
 
-
-
 	const renderPokemonsList = states.pokedex && states.pokedex.sort((a, b) => a.id - b.id).map((pokemon, index) => {
-		console.log(pokemon);
+
 		return (
 			<ListPokedexContainer key={index}>
 				<h3>{pokemon.name.toUpperCase()}</h3>
@@ -44,29 +39,10 @@ function PokedexPage() {
 		)
 	})
 
-	// const removeFromPokedex = (pokemon) => {
-	// 	const newPokemonsPokedex = [...states.pokedex]
-	// 	const index = states.pokemons.findIndex(
-	// 		(item) => item.name === pokemon.name
-	// 	);
-
-	// 	newPokemonsPokedex.splice(index, 1)
-	// 	setters.setPokedex(newPokemonsPokedex)
-
-	// 	const newPokemons = [... states.pokemonsHome, pokemon];
-	// 	const orderedPokemons = newPokemons.sort((a, b) => {
-	// 		return a.id - b.id;
-	// 	})
-	// 	setters.setPokemonsHome(orderedPokemons)
-	// 	setImageContainer('')
-	// }
-
 	const CleanPokedex = () => {
-		
 		setters.setPokedex([])
 		goToHomePage(navigate)
 		document.location.reload(true);
-		
 		
 	}
 	

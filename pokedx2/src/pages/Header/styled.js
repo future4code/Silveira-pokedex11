@@ -6,14 +6,12 @@ export const Container = styled.div`
   height: 8vw;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
 `
 export const Title = styled.p`
   font-weight: bold;
   margin: auto 20vw;
   `
 export const Button = styled.button`
-  /* margin-right: auto; */
   position: absolute;
   margin: 15px;
   padding: 1px 3px;
