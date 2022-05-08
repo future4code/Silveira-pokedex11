@@ -46,8 +46,7 @@ export const Img = styled.img`
   flex-grow: 1;
 `
 export const ContainerButton = styled.div`
-  /* background: blue; */
-  
+ 
   width: 100%;
   height: 100%;
 
@@ -59,8 +58,6 @@ export const ContainerButton = styled.div`
 export const Button = styled.button`
   height: 100%;
   width: 100%;
-   /* margin-top: -1.5vw; */
-  /* padding-bottom: 65px; */
   display: flex;
   align-items: center;
   justify-content: center;

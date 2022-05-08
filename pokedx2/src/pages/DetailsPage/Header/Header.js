@@ -7,7 +7,7 @@ import {goToPage} from "../../../routes/coordinator"
 
 const Header = props => {
 
-  console.log(props.poke);
+
   
   const navigate = useNavigate();
   return (

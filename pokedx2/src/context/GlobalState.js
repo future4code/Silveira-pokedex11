@@ -23,12 +23,9 @@ export default function GlobalState(props) {
 		try {
 
 			let diferenca = limit - começo;
-
 			if (limit > começo && diferenca >= 20){
-
 				const response = await axios.get(`${url}?limit=${limit}&offset=${começo}`)
-				setPokemons( response.data.results) 
-				
+				setPokemons( response.data.results) 	
 			} else{
 				return 'erro';
 			}
@@ -45,8 +42,6 @@ export default function GlobalState(props) {
 		try {
 			
 			const response = await axios.get(`${url}/${idDoPokemon}`)
-			// console.log('deu certo o getPokemonDetail');
-			// console.log(response.data);
 			setPokeInfo(response.data)
 
 		} catch (err) {
@@ -69,7 +64,7 @@ export default function GlobalState(props) {
 	
 	const addToPokedex = poke => {
 		const IndexPokemon = states.pokeInform.findIndex((value) => {
-			// console.log("IndexPokemon");
+
 			return value.name === poke.name
 		
 		})
@@ -108,11 +103,6 @@ export default function GlobalState(props) {
 		setters.setPokeInform(novaListPokemons)
 	}
 
-	const CleanPokedex = () => {
-		setters.setPokedex([])
-		requests.getPokemons(setters.setPokemons)
-		
-	}
 
 	const states = {    pokemons,   pokedex,   pokeInform,   categories,   currentCategory,   pokeInfo}
 
@@ -120,7 +110,7 @@ export default function GlobalState(props) {
 
 	const requests = {getAllPokemons,getPokemonsDetail,getPokemonsTypes}
 
-	const func = {addToPokedex, removeFromPokedex, CleanPokedex}
+	const func = {addToPokedex, removeFromPokedex, url}
 
 	return (
 			<GlobalStateContext.Provider value={{states,setters,requests,func}}>

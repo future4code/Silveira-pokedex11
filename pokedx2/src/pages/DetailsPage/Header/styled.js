@@ -16,8 +16,6 @@ export const Title = styled.p`
   margin: auto;
   `
 export const Button = styled.button`
-  /* margin-right: auto; */
-  /* position: absolute; */
   margin: 15px;
   padding: 1px 3px;
 `

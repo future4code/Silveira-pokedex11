@@ -4,7 +4,6 @@ export const MainContainer = styled.div`
   background-color: yellow;
 `
 export const Container = styled.div`
-  
   display: flex;
   justify-content: space-evenly;
   margin: 100px;
@@ -33,7 +32,6 @@ export const ContainerPowers = styled.div`
 export const ContainerDetails = styled.div`
   display: flex;
   flex-direction: column;
-   /* width: 100%; */
   height: 100%;
 `
 export const ContainerType = styled.div`
@@ -48,9 +46,8 @@ export const ContainerType = styled.div`
 `
 export const ContainerAttack = styled.div`
   border: dotted black 1px;
-  /* */
   background-color: lightgray;
-    width: 20%;
+  width: 20%;
   height: 100%;
   padding: 30px;
   display: flex;

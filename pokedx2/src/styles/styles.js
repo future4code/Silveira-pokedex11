@@ -10,7 +10,6 @@ export const GlobalStyled = createGlobalStyle`
     user-select: none;
   }
 `
-
 export const MainContainer = styled.div`
   display:flex;
   justify-content: center;
@@ -25,7 +24,6 @@ export const ImgContainer = styled.div`
   display: flex;
   
 `
-
 export const H1 = styled.h1 `  `
 export const HomePageContainer = styled.div ` display: flex; `
 export const SelectCategory = styled.div ` display: flex; `
@@ -47,4 +45,3 @@ export const Img = styled.img `
 export const Stats = styled.div ` display: flex; `
 export const Type = styled.div ` display: flex; `
 export const Moves = styled.div ` display: flex; `
-// export const  = styled.div ` display: flex; `

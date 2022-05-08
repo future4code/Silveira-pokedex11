@@ -13,18 +13,11 @@ import { useGlobal } from '../../context/GlobalStateContext';
 const DetailPage = () => {
     
 	const {states,setters,requests} = useGlobal()
-
-	// const navigate = useNavigate();
 	const { poke } = useParams();
 	
 	useEffect(() => {
 		requests.getPokemonsDetail(poke, setters.setPokeInfo)
 	},[setters.setPokeInfo])
-	
-	// console.log();
-	// console.log( ` ----- ${states.pokeInfo} ----- ` );
-	// console.log(states.pokeInfo);
-	// console.log("");
 
 	const ability = states.pokeInfo.name && states.pokeInfo.abilities.map((abilite) => {
 		return(
@@ -32,7 +25,6 @@ const DetailPage = () => {
 				{abilite.ability.name}
 			</p>
 		)
-		
 	})
 
 	const type = states.pokeInfo.name && states.pokeInfo.types.map((tiple) => {
@@ -41,32 +33,24 @@ const DetailPage = () => {
 				{tiple.type.name}
 			</p>
 		)
-		
 	})	
-	
-
 	const principalAttack = states.pokeInfo.name && states.pokeInfo.moves.map((mov) => {
 		return(
 			<p key={mov.move.name}>
 				{mov.move.name}
 			</p>
-			
 		)
-		
 	})
 
     return(
         <MainContainer>
-
 			<Header
 				poke={poke}
 			/>
 {
 	states.pokeInfo.name &&
-
 			<Container>
 				<ContainerImg>
-
 					<img 
 						src={states.pokeInfo.sprites.front_default}
 					 	alt={`imagem do ${poke} de frente`} 
@@ -75,11 +59,7 @@ const DetailPage = () => {
 						src={states.pokeInfo.sprites.back_default }
 						alt={`imagem do ${poke} de costas`} 
 					/>
-
 				</ContainerImg>
-
-				
-
 				<ContainerDetails>
 					<ContainerPowers>
 						<h3>Poderes</h3>
@@ -90,13 +70,10 @@ const DetailPage = () => {
 						{type}
 					</ContainerType>
 				</ContainerDetails>
-
 					<ContainerAttack>
 						<h3>Principais ataques</h3>
 						{principalAttack}
 					</ContainerAttack>
-
-			
 			</Container>
 }
         </MainContainer>
