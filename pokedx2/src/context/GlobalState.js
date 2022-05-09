@@ -3,9 +3,6 @@ import { GlobalStateContext } from './GlobalStateContext'
 import React, {useState, useEffect, useContext} from 'react'
 
 
-
-// import { url } from "../constants/url";
-
 export default function GlobalState(props) {
 	
 	const [pokemons,setPokemons] = useState([]);

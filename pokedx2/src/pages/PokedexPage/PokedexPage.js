@@ -1,20 +1,15 @@
-
-
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { goToDetails, goToPage,goToHomePage } from '../../routes/coordinator';
 import { GlobalStateContext } from "../../context/GlobalStateContext";
-
 import { useGlobal } from '../../context/GlobalStateContext';
-
 import pokeballWhiteIcon from "../../imgs/pokeballWhite-icon.png";
-import remover from "../../imgs/Remover-da-Pokedex.png";
-import detalhes from "../../imgs/Detalhes.png";
+import remover from "../../imgs/remover-pokedex.png";
 import limpar from "../../imgs/Limpar-Pokedex.png";
 import pokedex from "../../imgs/Pokedex.png";
 import pokeballIcon from "../../imgs/pokeball-icon.png"
 import voltar from "../../imgs/Voltar.png"
-import { HeaderContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, Buttons, CartPokedex} from "./style";
+import { HeaderContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, Buttons, CartPokedex, ImagePoke} from "./style";
 
 function PokedexPage() {
 	const [image , setImage] = useState("")
@@ -28,13 +23,13 @@ function PokedexPage() {
 			<ListPokedexContainer key={index}>
 				<h3>{pokemon.name.toUpperCase()}</h3>
 				{pokemon.sprites ? (
-					<img src={pokemon.sprites.front_default} alt={pokemon.name}/>
+					<ImagePoke src={pokemon.sprites.front_default} alt={pokemon.name}/>
 				) : (
 					null
 				)
 			}
 					<img src={pokeballWhiteIcon}/>
-					<button onClick={() => { func.removeFromPokedex(pokemon) }}>Remover da Pokedex</button>
+					<Buttons onClick={() => { func.removeFromPokedex(pokemon) }}><img src={remover} /></Buttons>
 			</ListPokedexContainer>
 		)
 	})
@@ -43,22 +38,8 @@ function PokedexPage() {
 		setters.setPokedex([])
 		goToHomePage(navigate)
 		document.location.reload(true);
-		
 	}
 	
-	const onClickImage = (pokemon, props) => {
-		setImageContainer(
-			<CartPokedex>
-				<img src={props.Poke.sprites.front_default} alt={props.Poke.name} />
-				<Buttons>
-					<a onClick={() => func.removeFromPokedex(pokemon)}><img src={remover} alt="Remover" /> alert(adicionado)</a>
-					<a onClick={() => goToDetails(navigate, props.pokemon.name)}><img src={detalhes} alt="Detalhes"/></a> 
-				</Buttons>
-			</CartPokedex>
-		)
-	}
-
-
 	return (
 		<GlobalStateContext.Provider value={{image , setImage}}>
 			<PokedexPageContainer>
@@ -71,7 +52,7 @@ function PokedexPage() {
 
 					<NumContainer>
 						<img src={pokeballIcon} />
-						<p>{states.pokedex.length}</p>
+						<p>{states.pokedex?.length}</p>
 					</NumContainer>
 				</HeaderContainer>
 				<MainContainer>

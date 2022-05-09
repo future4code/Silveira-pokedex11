@@ -1,26 +1,21 @@
 import React, { useEffect} from "react";
-
 import axios from "axios";
-
 import PokeCard from "../../components/PokeCard/PokeCard";
 import Header from "../Header/Header";
-
 import { useGlobal } from "../../context/GlobalStateContext";
-import { HomeContainer, SelectCategory, ContainerGrid } from "./style";
+import { HomeContainer, ContainerGrid } from "./style";
 
 
 export default function HomePage() {
-	// const url = "https://pokeapi.co/api/v2/pokemon"
-	const {states,setters,requests,func} = useGlobal()
+
+	const {states,setters,requests,func} = useGlobal();
 	
-	useEffect(() => {
-		requests.getPokemonsTypes(setters.setCategories)
-    }, [])
+
 	useEffect(()=>{
 		document.title = 'PokeDex'
 		requests.getAllPokemons(setters.setPokemons,30,0 )
-
 	},[])
+	
 	useEffect(() => {
 		const listnew = [];
 		states.pokemons && states.pokemons.forEach((poke)=>{
@@ -44,27 +39,14 @@ export default function HomePage() {
 		)
 	})
 
-	const renderCategories = states.categories.map((categorie) => {
-		return (
-			<option key={categorie.name} value={categorie.name}>{categorie.name}</option>
-		)
-	})
-  
-	const handleCategories = e => {
-		setters.setCurrentCategory(e.target.value)
-	}
-
 	return ( 
     <HomeContainer>
 			<Header />
-			<SelectCategory  onChange={handleCategories}>
-                <option value='all' defaultValue>Selecione um tipo de Pókemon</option>
-                    {renderCategories}
-            </SelectCategory>
 
 			<ContainerGrid>	
 				{list}
 			</ContainerGrid>
+
 		</HomeContainer>
 	)
 }

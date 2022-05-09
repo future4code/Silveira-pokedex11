@@ -22,6 +22,7 @@ export const HeaderContainer = styled.div `
 export const NumContainer = styled.div `
     display: flex;
     width: 80px;
+    height: 3vw;
     align-items: center;
     justify-content: space-evenly;
     background-color: #696969;
@@ -86,13 +87,13 @@ export const ListPokedexContainer = styled.div `
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     :hover {
         transition: all 800ms;
-        box-shadow: -15px 0px 0px 0px #24384a;
+        box-shadow: -15px 5px 5px 3px #c52018;
         transform: scale(1.03)
     }
 `
 
 export const DetailContainerList = styled.div `
-background-color: blue;
+    background-color: blue;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -120,14 +121,15 @@ export const Buttons = styled.a `
     align-items: center;
     justify-content: space-evenly;
     cursor: pointer;
-    a:nth-child(1):hover {
-        cursor: pointer;
+    
+    &:hover{
         transition: all 800ms;
-        transform: scale(1.1);
+        transform: scale(1.05);
+        position: relative;
+        box-shadow: none;
     }
-    a:nth-child(2):hover {
-        cursor: pointer;
-        transition: all 800ms;
-        transform: scale(1.1);
-    }
+`
+
+export const ImagePoke = styled.img `
+    width: 50vw;
 `

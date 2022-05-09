@@ -20,6 +20,7 @@ export const Button = styled.button`
 export const IrParaPokedex = styled.a`
     width: auto;
     margin: auto 2vw;
+    cursor: pointer;
 
     &:hover {
     img{
