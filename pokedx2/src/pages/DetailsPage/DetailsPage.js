@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from "./Header/Header"
-
-import {useNavigate, useParams} from 'react-router-dom';
-
+import {useParams} from 'react-router-dom';
 import {MainContainer,Container, ContainerImg, ContainerPowers, ContainerDetails, ContainerType, ContainerAttack} from "./styled"
 import { useGlobal } from '../../context/GlobalStateContext';
 

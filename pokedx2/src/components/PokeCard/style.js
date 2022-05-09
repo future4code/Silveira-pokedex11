@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    
     width: 250px;
     height: 400px;
     background-color: #292929;
@@ -11,7 +10,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 15px;
-    margin-left: 2vw;
+    margin-left: 3vw;
     color: white;
     font-size: 16px;
     box-shadow: 5px 5px 10px 2px #1C3144;
@@ -45,16 +44,14 @@ export const Img = styled.img`
   width: 200px;
   flex-grow: 1;
 `
+
 export const ContainerButton = styled.div`
- 
   width: 100%;
   height: 100%;
-
   display: flex;
   justify-content: center;
-
-
 `
+
 export const Button = styled.button`
   height: 100%;
   width: 100%;
@@ -64,7 +61,6 @@ export const Button = styled.button`
   font-size: 20px;
   color:white;
   background-color:transparent;
-  
   border: none;
   cursor: pointer;
 
@@ -76,9 +72,9 @@ export const Button = styled.button`
 `
 
 export const PokemonNameCard = styled.button`
-  background-color: #52af59;
+    background-color: #c52018;
     color: white;
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-shadow: 2px 2px 2px black;
     height: 30px;
     border-radius: 19px;
@@ -90,5 +86,5 @@ export const PokemonNameCard = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 2px 2px 2px 2px #296b37;
+    box-shadow: 2px 2px 2px 2px #c52018;
 `

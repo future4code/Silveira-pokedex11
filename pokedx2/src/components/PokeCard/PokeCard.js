@@ -3,7 +3,8 @@ import {Container, Img, ContainerButton, Button, PokemonNameCard} from "./style"
 import {goToPage} from "../../routes/coordinator"
 import { useNavigate } from 'react-router-dom'
 import { useGlobal } from '../../context/GlobalStateContext';
-
+import adicionarpokedex from "../../imgs/Adicionar-a-Pokedex.png"
+import detalhes from "../../imgs/Detalhes.png"
 
 const PokeCard = props => {
 
@@ -12,7 +13,6 @@ const PokeCard = props => {
 
 	const funcaoclick = () => {
 		goToPage(navigate, `/details/${props.Poke.name}`)
-		
 	}
 
 
@@ -24,7 +24,6 @@ const PokeCard = props => {
 			} else {
 			return -1
 			}
-			
 		})
 		
 		if (states.pokedex === undefined ) {
@@ -43,7 +42,7 @@ const PokeCard = props => {
 	return (
 		<Container>
 
-			<PokemonNameCard>{props.Poke.name}</PokemonNameCard>
+			<PokemonNameCard>{props.Poke.name.toUpperCase()}</PokemonNameCard>
 			<Img src={props.Poke.sprites.front_default} alt="teste" />
 
 			<ContainerButton>
@@ -51,13 +50,13 @@ const PokeCard = props => {
 					<Button 
 						onClick={escolha}
 					>
-							Adicionar a Pokédex
+							<img src={adicionarpokedex} />
 						</Button>
 
 				<Button
 					onClick={() => funcaoclick()}
 				>
-					Ver detalhes
+					<img src={detalhes} />
 				</Button>
 			</ContainerButton>
 			
