@@ -1,7 +1,7 @@
 # Silveira-pokedex1
 
-Nome dos integrantes: 
--Bernardo braga
+Nome dos integrantes: <br>
+-Bernardo braga <br>
 -Andresa Alves
 
 Link do Surge: https://itchy-house.surge.sh/
